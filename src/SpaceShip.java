@@ -1,0 +1,170 @@
+
+import javafx.geometry.Bounds;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+
+public class SpaceShip {
+//
+	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("spaceship.png"));
+	Image imagedamaged1 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship1.png"));
+	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship2.png"));
+	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship3.png"));
+	Image imagedamaged4 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedShip4.gif"));
+	private int x = 0;
+	private int y = 0;
+	private int damageCount = 0;
+	private int maxHealth = 10;
+	private boolean isDead = false;
+	private int movement = 10;
+	
+	long cooldown = 0; 
+	int shootTime = 500;
+	
+	public SpaceShip(int x, int y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public void moveUp(int delta) {
+	if(isDead == false) {
+		y=y-delta;
+	}
+	}
+	
+	public void moveDown(int delta) {
+		if(isDead == false) {
+			y=y+delta;
+		}
+	}
+	
+	public void moveLeft(int delta) {
+		if(isDead == false) {
+			x=x-delta;
+		}
+	}
+	
+	public void setDead(boolean isDead) {
+		this.isDead = isDead;
+	}
+
+	public void moveRight(int delta) {
+		if(isDead == false) {
+			x=x+delta;
+		}
+	}
+	
+	public String toString() {
+		
+		return "Spaceship(x:"+x+"|y:"+y+")";
+	}
+	
+	public void paint(GraphicsContext ge) {
+		
+	if(isDead == true) {
+		ge.drawImage(imagedamaged4, this.x, this.y);
+	}else {
+		ge.drawImage(this.image, this.x, this.y);
+	}
+
+		//ge.fillText(this.shipString, this.x, this.y);
+	/**	
+	int width = (int)com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().computeStringWidth(shipString, ge.getFont());
+	int heigth = (int)com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(ge.getFont()).getLineHeight();
+	
+	System.out.println("Width "+width);
+	System.out.println("Heighth "+heigth);**/
+	}
+	
+	
+	
+	
+	
+
+	
+	public Rocket fire() {
+		
+		Rocket r = new Rocket(this.x+42, this.y, -5);
+		return r;
+	}
+	
+	public Bounds getBounds() {
+		
+		Rectangle r = new Rectangle(this.x, this.y-25, 49, 51);
+		return r.getBoundsInLocal();
+	}
+	
+	public void damage() {
+		
+		if(damageCount == maxHealth/4) {
+			image = imagedamaged1;
+			damageCount ++;
+		}else if(damageCount == maxHealth/4*2) {
+			image = imagedamaged2;
+			damageCount++;
+		}else if(damageCount == maxHealth/4 *3) {
+			image = imagedamaged3;
+			damageCount ++;
+		}else {
+			damageCount ++;
+		}
+		
+		System.out.println("AUUUUUUUUUTSCH!");
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public int getDamageCount() {
+		return damageCount;
+	}
+	
+	public void respawn() {
+		x= 50;
+		y= 50  ;
+		damageCount = 0;
+		image = new Image(Starter.class.getClassLoader().getResourceAsStream("spaceship.png"));
+	}
+	
+	public boolean canFire()
+    {
+        long currentTime = System.currentTimeMillis();
+        
+		if(currentTime - cooldown >= shootTime) 
+        {
+             cooldown = currentTime;
+             return true;
+        }
+        else 
+        {
+            return false;
+        }
+    }
+
+	public int getMaxHealth() {
+		return maxHealth;
+	}
+
+	public void setMaxHealth(int maxHealth) {
+		this.maxHealth = maxHealth;
+	}
+	
+	public void setMovement(int movement) {
+		this.movement = movement;
+	}
+	
+	public int getMovement() {
+		return movement;
+	}
+	
+	public void setShootTime(int shootTime) {
+		this.shootTime = shootTime;
+	}
+	
+}
