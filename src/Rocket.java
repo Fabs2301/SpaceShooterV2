@@ -9,7 +9,7 @@ public class Rocket {
 	private int x;
 	private int y;
 	private int speed = 1;
-	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("rocket.png"));
+	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\rocket.png"));
 	
 	
 	public Rocket(int x, int y, int speed) {

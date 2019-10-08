@@ -7,11 +7,11 @@ import javafx.scene.text.Font;
 
 public class SpaceShip {
 //
-	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("spaceship.png"));
-	Image imagedamaged1 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship1.png"));
-	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship2.png"));
-	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedSpaceship3.png"));
-	Image imagedamaged4 = new Image(Starter.class.getClassLoader().getResourceAsStream("damagedShip4.gif"));
+	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
+	Image imagedamaged1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship1.png"));
+	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship2.png"));
+	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship3.png"));
+	Image imagedamaged4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedShip4.gif"));
 	private int x = 0;
 	private int y = 0;
 	private int damageCount = 0;
@@ -129,7 +129,7 @@ public class SpaceShip {
 		x= 50;
 		y= 50  ;
 		damageCount = 0;
-		image = new Image(Starter.class.getClassLoader().getResourceAsStream("spaceship.png"));
+		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 	}
 	
 	public boolean canFire()

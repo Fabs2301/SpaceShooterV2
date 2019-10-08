@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class Starter extends Application implements EventHandler<KeyEvent> {
 
-	int width = 601;
+	int width = 600;
 	int heigth = 400;
 	
 	SpaceShip s = new SpaceShip(50, 50);
@@ -27,25 +27,25 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
 	List<Rocket> rocket = new ArrayList<Rocket>();
-	Image background = new Image(Starter.class.getClassLoader().getResourceAsStream("giphy.gif"));
-	Image gameOverImg = new Image(Starter.class.getClassLoader().getResourceAsStream("gameOver.gif"));
-	Image titleImg = new Image(Starter.class.getClassLoader().getResourceAsStream("title.png"));
-	Image guiBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("GUIBackground.png"));
-	Image cursor = new Image(Starter.class.getClassLoader().getResourceAsStream("Arrow.png"));
-	Image upgradeBox = new Image(Starter.class.getClassLoader().getResourceAsStream("updateBox.png"));
-	Image upgradeBlock = new Image(Starter.class.getClassLoader().getResourceAsStream("upgradeBlock.png"));
-	Image controlsArrows = new Image(Starter.class.getClassLoader().getResourceAsStream("controlsArrows.png"));
-	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("controlsShift.png"));
-	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("controlsSpace.png"));
-	Image translucentBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("translucentBackground.png"));
-	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("White.png"));
+	Image background = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\giphy.gif"));
+	Image gameOverImg = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\gameOver.gif"));
+	Image titleImg = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\title.png"));
+	Image guiBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\GUIBackground.png"));
+	Image cursor = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Arrow.png"));
+	Image upgradeBox = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\updateBox.png"));
+	Image upgradeBlock = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\upgradeBlock.png"));
+	Image controlsArrows = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsArrows.png"));
+	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
+	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
+	Image translucentBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\translucentBackground.png"));
+	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
 	
-	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image1.png"));
-	Image Image2 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image2.png"));
-	Image Image3 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image3.png"));
-	Image Image4 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image4.jpg"));
-	Image Image5 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image5.png"));
-	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("Image6.png"));
+	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image1.png"));
+	Image Image2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image2.png"));
+	Image Image3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image3.png"));
+	Image Image4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image4.jpg"));
+	Image Image5 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image5.png"));
+	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image6.png"));
 	
 	boolean toogleMusic = true;
 	public int intscore = 0;
@@ -62,15 +62,15 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
-                .getResourceAsStream("/bitFond.ttf"), 20);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 20);
 	
 	Font bitFontM = 
             Font.loadFont(getClass()
-                .getResourceAsStream("/bitFond.ttf"), 15);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 15);
 	
 	Font bitFontS = 
             Font.loadFont(getClass()
-                .getResourceAsStream("/bitFond.ttf"), 10);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 10);
 	
 
 	public static void main (String args[]) {
@@ -81,7 +81,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 		primaryStage.setTitle("SpaceShooter");
 		primaryStage.getIcons().add(titleImg);
-		final Image backgroundimageBlack = new Image(Starter.class.getClassLoader().getResourceAsStream("black.png"));
+		final Image backgroundimageBlack = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\black.png"));
 		Group root = new Group();
 		final Canvas canvas = new Canvas(1920, 1080);
 		canvas.setFocusTraversable(true);
@@ -102,19 +102,19 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.show();
 		
 		
-		final URL sound23 = getClass().getResource("GameOver.mp3");
+		final URL sound23 = getClass().getResource("\\sound\\GameOver.mp3");
 		Media sound = new Media(sound23.toString());
 		final MediaPlayer mediaPlayer = new MediaPlayer(sound);
 		
-		final URL sound24 = getClass().getResource("GameOver.mp3");
+		final URL sound24 = getClass().getResource("\\sound\\GameOver.mp3");
 		Media sound1 = new Media(sound24.toString());
 		final MediaPlayer mediaPlayerGameOver = new MediaPlayer(sound1);
 		
-		final URL sound25 = getClass().getResource("titleTheme.mp3");
+		final URL sound25 = getClass().getResource("\\sound\\titleTheme.mp3");
 		Media sound4 = new Media(sound25.toString());
 		final MediaPlayer titleTheme = new MediaPlayer(sound4);
 		
-		final URL sound26 = getClass().getResource("easteregg.mp3");
+		final URL sound26 = getClass().getResource("\\sound\\easteregg.mp3");
 		Media sound12 = new Media(sound26.toString());
 		final MediaPlayer easteregg = new MediaPlayer(sound12);
 
@@ -239,7 +239,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						if(switchSceneToGameOver == false) {
 						deathCount = count;	
 						
-					final URL sound27 = getClass().getResource("explosion.wav");
+					final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
 					Media sound6 = new Media(sound27.toString());
 					final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
 					mediaPlayerExplosion.play();
@@ -286,7 +286,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Press Enter", 170, 250);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber", 170, 350);
+				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler", 170, 350);
 				count ++;
 				//2130
 				if(count == 2130) {
@@ -475,7 +475,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public void handle(KeyEvent event) {
 		int movement = s.getMovement();
 		
-		final URL sound28 = getClass().getResource("cursorSound.mp3");
+		final URL sound28 = getClass().getResource("\\sound\\cursorSound.mp3");
 		Media sound8 = new Media(sound28.toString());
 		final MediaPlayer cursorSound = new MediaPlayer(sound8);
 		
@@ -562,7 +562,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			rocket.add(r);
 			System.out.println("Rocket Obejts:" + rocket.size());
 			
-			final URL sound29 = getClass().getResource("PewSound.mp3");
+			final URL sound29 = getClass().getResource("\\sound\\PewSound.mp3");
 			Media sound = new Media(sound29.toString());
 			final MediaPlayer mediaPlayer = new MediaPlayer(sound);
 			mediaPlayer.play();
@@ -585,7 +585,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					if (cursorCorY == 265) {
 					setScene = 1;
 					s.respawn();
-					final URL sound30 = getClass().getResource("coinSound.mp3");
+					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
 					mediaPlayerCoin.play();
@@ -596,7 +596,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 				}else if(setScene == 0 || setScene == 4){
 					
-					final URL sound30 = getClass().getResource("coinSound.mp3");
+					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
 					mediaPlayerCoin.play();
@@ -623,7 +623,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						score="Points: "+intscore;
 						shop.upgradeSpeed(s);
 					}else{
-						final URL sound31 = getClass().getResource("NoSound.mp3");
+						final URL sound31 = getClass().getResource("\\sound\\NoSound.mp3");
 						Media sound3 = new Media(sound31.toString());
 						final MediaPlayer NoSound = new MediaPlayer(sound3);
 						NoSound.play();
@@ -631,7 +631,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 			break;
 		case "Esc":
-			final URL sound32 = getClass().getResource("coinSound.mp3");
+			final URL sound32 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound3 = new Media(sound32.toString());
 			final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
 			

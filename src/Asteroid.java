@@ -10,8 +10,8 @@ public class Asteroid {
 	private int x;
 	private int y;
 	private int speed = 1;
-	Image asteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("asteroid.png"));
-	Image damagedAsteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("asteroiddamaged.png"));
+	Image asteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroid.png"));
+	Image damagedAsteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroiddamaged.png"));
     boolean isDamaged = false;
 	private Integer coordinateWhenRemoved = x ;
 	

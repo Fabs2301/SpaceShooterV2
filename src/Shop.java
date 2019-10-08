@@ -28,7 +28,7 @@ public class Shop {
 			healthUpgradeLevel = 1;
 			healthPrice = 200;
 			s.setMaxHealth(15);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -36,7 +36,7 @@ public class Shop {
 			healthUpgradeLevel = 2;
 			healthPrice = 300;
 			s.setMaxHealth(20);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -44,7 +44,7 @@ public class Shop {
 			healthUpgradeLevel = 3;
 			s.setMaxHealth(30);
 			healthPrice = 400;
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -53,12 +53,12 @@ public class Shop {
 			// 0 bedeutet ausverkauft
 			healthPrice = 0;
 			s.setMaxHealth(40);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
 		}else {
-			final URL sound34 = getClass().getResource("NoSound.mp3");
+			final URL sound34 = getClass().getResource("\\sound\\NoSound.mp3");
 			Media sound3 = new Media(sound34.toString());
 			final MediaPlayer NoSound = new MediaPlayer(sound3);
 			NoSound.play();
@@ -75,7 +75,7 @@ public class Shop {
 			speedUpgradeLevel = 2;
 			speedPrice = 300;
 			s.setMaxHealth(18);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -83,7 +83,7 @@ public class Shop {
 			speedUpgradeLevel = 3;
 			speedPrice = 400;
 			s.setMovement(22);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -92,12 +92,12 @@ public class Shop {
 			// 0 bedeutet ausverkauft
 			speedPrice = 0;
 			s.setMovement(26);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
 		}else {
-			final URL sound34 = getClass().getResource("NoSound.mp3");
+			final URL sound34 = getClass().getResource("\\sound\\NoSound.mp3");
 			Media sound3 = new Media(sound34.toString());
 			final MediaPlayer NoSound = new MediaPlayer(sound3);
 			NoSound.play();
@@ -109,7 +109,7 @@ public class Shop {
 			shootingUpgradeLevel = 1;
 			shootingPrice = 200;
 			s.setShootTime(750);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -117,7 +117,7 @@ public class Shop {
 			shootingUpgradeLevel = 2;
 			shootingPrice = 300;
 			s.setShootTime(500);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -125,7 +125,7 @@ public class Shop {
 			shootingUpgradeLevel = 3;
 			shootingPrice = 400;
 			s.setShootTime(250);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
@@ -134,12 +134,12 @@ public class Shop {
 			// 0 bedeutet ausverkauft
 			shootingPrice = 0;
 			s.setShootTime(200);
-			final URL sound33 = getClass().getResource("coinSound.mp3");
+			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
 			upgradeSound.play();
 		}else {
-			final URL sound34 = getClass().getResource("NoSound.mp3");
+			final URL sound34 = getClass().getResource("\\sound\\NoSound.mp3");
 			Media sound3 = new Media(sound34.toString());
 			final MediaPlayer NoSound = new MediaPlayer(sound3);
 			NoSound.play();
