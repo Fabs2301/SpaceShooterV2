@@ -83,11 +83,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.getIcons().add(titleImg);
 		final Image backgroundimageBlack = new Image(Starter.class.getClassLoader().getResourceAsStream("black.png"));
 		Group root = new Group();
-		final Canvas canvas = new Canvas(570, 362);
+		final Canvas canvas = new Canvas(1920, 1080);
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(this);
 		root.getChildren().add(canvas);
 		primaryStage.setScene(new Scene(root));
+		primaryStage.setFullScreen(true);
 
 						
 		// Create Asteroiden
