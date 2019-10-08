@@ -62,15 +62,15 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 20);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 40);
 	
 	Font bitFontM = 
             Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 15);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 25);
 	
 	Font bitFontS = 
             Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 10);
+                .getResourceAsStream("\\font\\bitFond.ttf"), 20);
 	
 
 	public static void main (String args[]) {
@@ -283,10 +283,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
-				canvas.getGraphicsContext2D().fillText("Press Enter", 170, 250);
+				canvas.getGraphicsContext2D().fillText("Press Enter", 750, 900);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler", 170, 350);
+				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler", 600, 1020);
 				count ++;
 				//2130
 				if(count == 2130) {
