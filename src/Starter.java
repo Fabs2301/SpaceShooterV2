@@ -101,7 +101,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.show();
 		
 		
-		final URL sound23 = getClass().getResource("test.mp3");
+		final URL sound23 = getClass().getResource("GameOver.mp3");
 		Media sound = new Media(sound23.toString());
 		final MediaPlayer mediaPlayer = new MediaPlayer(sound);
 		
