@@ -19,7 +19,7 @@ import javafx.stage.Stage;
 
 public class Starter extends Application implements EventHandler<KeyEvent> {
 
-	int width = 602;
+	int width = 600;
 	int heigth = 400;
 	
 	SpaceShip s = new SpaceShip(50, 50);
