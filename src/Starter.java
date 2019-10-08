@@ -19,10 +19,10 @@ import javafx.stage.Stage;
 
 public class Starter extends Application implements EventHandler<KeyEvent> {
 
-	int width = 600;
-	int heigth = 400;
+	int width = 1920;
+	int heigth = 1080;
 	
-	SpaceShip s = new SpaceShip(50, 50);
+	SpaceShip s = new SpaceShip(100, 100);
 	Shop shop = new Shop(0,0,0);
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
@@ -92,7 +92,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 						
 		// Create Asteroiden
-		for (int i = 0; i < heigth * width / 9600; i++) {
+		for (int i = 0; i < heigth * width / 96000; i++) {
 
 			Asteroid a = new Asteroid(0, 0, 0);
 			a.reposition(width / 2, heigth);
@@ -153,8 +153,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
-				canvas.getGraphicsContext2D().fillText(score, 380, 35);
-				canvas.getGraphicsContext2D().fillText("Health:"+ currentHealth+"/"+s.getMaxHealth(), 10, 35);
+				canvas.getGraphicsContext2D().fillText(score, 1600, 45);
+				canvas.getGraphicsContext2D().fillText("Health:"+ currentHealth+"/"+s.getMaxHealth(), 20, 45);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
@@ -174,8 +174,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 
 				}
-				if (asteroiden.size() < heigth * width / 9600) {
-					for (int i = 0; i < heigth * width / 9600 - asteroiden.size(); i++) {
+				if (asteroiden.size() < heigth * width / 96000) {
+					for (int i = 0; i < heigth * width / 96000 - asteroiden.size(); i++) {
 						Asteroid a = new Asteroid(0, 0, 0);
 						a.reposition(width, heigth);
 						asteroiden.add(a);
@@ -279,11 +279,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				//Title screen:
 				titleTheme.play();
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 115, 50);
+				canvas.getGraphicsContext2D().drawImage(titleImg, 460, 150);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
-				canvas.getGraphicsContext2D().fillText("Press Enter", 750, 900);
+				canvas.getGraphicsContext2D().fillText("Press Enter", 750, 800);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler", 600, 1020);
@@ -374,7 +374,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else if(setScene == 4) {
 				moveText = moveText-0.25; // 0,25
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 115, moveText);
+				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);

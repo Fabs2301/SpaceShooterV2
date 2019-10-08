@@ -34,7 +34,7 @@ public class Asteroid {
 		Random rnd = new Random();
 		
 		this.x = width + rnd.nextInt(width);
-		this.y = rnd.nextInt(height)+50;
+		this.y = rnd.nextInt(height)+85;
 		this.speed = rnd.nextInt(6)+1;
 	}
 	
