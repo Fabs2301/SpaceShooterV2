@@ -48,7 +48,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image6.png"));
 	
 	boolean toogleMusic = true;
-	public int intscore = 0;
+	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
 	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
