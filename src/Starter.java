@@ -51,7 +51,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
+	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -102,9 +102,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.show();
 		
 		
-		final URL sound23 = getClass().getResource("\\sound\\GameOver.mp3");
+		final URL sound23 = getClass().getResource("\\sound\\inGameMusic.mp3");
 		Media sound = new Media(sound23.toString());
-		final MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		final MediaPlayer inGameMusic = new MediaPlayer(sound);
+		
 		
 		final URL sound24 = getClass().getResource("\\sound\\GameOver.mp3");
 		Media sound1 = new Media(sound24.toString());
@@ -131,15 +132,20 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
  				
 				//toogle music
 				if(toogleMusic == false) {
-					mediaPlayer.stop();
+					inGameMusic.stop();
 					music = "Music: off (M)";
 
 				}else if(toogleMusic == true) {
-					mediaPlayer.play();
+					inGameMusic.play();
 					music = "Music: on (M)";
 
-				}
+				}	
+				System.out.println(	inGameMusic.getCurrentTime());
 				
+				if(inGameMusic.getCurrentTime().equals("170000.022675 ms")) {
+					inGameMusic.stop();
+					inGameMusic.play();
+				}
 				// Screen blanking and background:
 				canvas.getGraphicsContext2D().clearRect(0, 0, primaryStage.getWidth(), primaryStage.getHeight());
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
@@ -260,7 +266,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				//Game Over Screen:
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
-				mediaPlayer.stop();
+				inGameMusic.stop();
 				mediaPlayerGameOver.play();
 				
 				 
