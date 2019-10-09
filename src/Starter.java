@@ -140,9 +140,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					music = "Music: on (M)";
 
 				}	
-				System.out.println(	inGameMusic.getCurrentTime());
 				
-				if(inGameMusic.getCurrentTime().equals("170000.022675 ms")) {
+				//Ingame music loop (2:48 min) 
+				Double musicTimer = inGameMusic.getCurrentTime().toSeconds();
+				if(musicTimer > 168.0) {
 					inGameMusic.stop();
 					inGameMusic.play();
 				}

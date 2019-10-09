@@ -27,7 +27,7 @@ public class Shop {
 		if(healthUpgradeLevel == 0) {
 			healthUpgradeLevel = 1;
 			healthPrice = 200;
-			s.setMaxHealth(15000);
+			s.setMaxHealth(15);
 			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
