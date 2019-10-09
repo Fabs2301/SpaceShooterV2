@@ -51,7 +51,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
+	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -158,7 +158,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
-				canvas.getGraphicsContext2D().fillText(music, 0, 360);
+				canvas.getGraphicsContext2D().fillText(music, 0, 1080);
 				// paint cycle(paints ship)
 				s.paint(canvas.getGraphicsContext2D());				
 				
@@ -259,14 +259,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else if(setScene == 2) {
 				//Game Over Screen:
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(gameOverImg, 115, -50);
+				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
 				mediaPlayer.stop();
 				mediaPlayerGameOver.play();
 				
 				 
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
-				canvas.getGraphicsContext2D().fillText("Your Points: "+intscore, 145, 185);
+				canvas.getGraphicsContext2D().fillText("Your Points: "+intscore, 625, 585);
 			
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 170, 250);
@@ -286,7 +286,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Press Enter", 750, 800);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler", 600, 1020);
+				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler		    	ver 2.0", 600, 1020);
 				count ++;
 				//2130
 				if(count == 2130) {
