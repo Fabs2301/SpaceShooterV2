@@ -221,7 +221,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
  					for (Iterator<Rocket> iterator1 = rocket.iterator(); iterator1.hasNext();) {
 						Rocket rck = iterator1.next();
-						if (rck.getBounds().intersects(ast.getBounds())) {
+						if (rck.getBounds().intersects(ast.getBounds()) && ast.isDamaged == false) {
 
 							ast.explosion();
 							iterator1.remove();
@@ -269,9 +269,9 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Your Points: "+intscore, 625, 585);
 			
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 170, 250);
+				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 700, 690);
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
-				canvas.getGraphicsContext2D().fillText("Continue", 170, 290);
+				canvas.getGraphicsContext2D().fillText("Continue", 700, 730);
 				switchSceneToGameOver = false;
 				s.setDead(false);
 				currentHealth = s.getMaxHealth();
