@@ -22,7 +22,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int width = 1920;
 	int heigth = 1080;
 	
-	SpaceShip s = new SpaceShip(100, 100);
+	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
@@ -37,7 +37,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image controlsArrows = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsArrows.png"));
 	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
 	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
-	Image translucentBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\translucentBackground.png"));
 	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
 	
 	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image1.png"));
@@ -440,10 +439,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else if(setScene == 5) {
 				
 				
-				canvas.getGraphicsContext2D().drawImage(translucentBackground,0,0);
+				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack,0,0);
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
-				canvas.getGraphicsContext2D().fillText("Pause", 235, 180);
+				canvas.getGraphicsContext2D().fillText("Pause", 635, 180);
 			}else if(setScene == 6) {
 				primaryStage.setTitle("SpaceHutter");
 				mediaPlayerGameOver.stop();
@@ -499,7 +498,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		switch (event.getCode().getName()) {
 		case "Up":
 		if(setScene == 1) {	
-			if(s.getY()<52) {
+			if(s.getY()<88) {
 				break;
 			}else {
 			s.moveUp(movement);}
@@ -528,7 +527,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		break;
 		case "Down":
 			if(setScene == 1) {
-			if(s.getY()>heigth -93 ) {
+			if(s.getY()>heigth -180) {
 	  	 		 break;
 			}else {
 			s.moveDown (movement);}}

@@ -68,30 +68,20 @@ public class SpaceShip {
 		ge.drawImage(this.image, this.x, this.y);
 	}
 
-		//ge.fillText(this.shipString, this.x, this.y);
-	/**	
-	int width = (int)com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().computeStringWidth(shipString, ge.getFont());
-	int heigth = (int)com.sun.javafx.tk.Toolkit.getToolkit().getFontLoader().getFontMetrics(ge.getFont()).getLineHeight();
-	
-	System.out.println("Width "+width);
-	System.out.println("Heighth "+heigth);**/
+
 	}
-	
-	
-	
-	
 	
 
 	
 	public Rocket fire() {
 		
-		Rocket r = new Rocket(this.x+42, this.y, -5);
+		Rocket r = new Rocket(this.x+125, this.y+55, -5);
 		return r;
 	}
 	
 	public Bounds getBounds() {
 		
-		Rectangle r = new Rectangle(this.x, this.y-25, 49, 51);
+		Rectangle r = new Rectangle(this.x, this.y-25, 160, 154);
 		return r.getBoundsInLocal();
 	}
 	

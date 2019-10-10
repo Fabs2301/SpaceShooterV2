@@ -42,7 +42,7 @@ public class Rocket {
 	}
 	
 	public Bounds getBounds() {
-		Rectangle r = new Rectangle(this.x, this.y, 25, 10);
+		Rectangle r = new Rectangle(this.x, this.y, 50, 20);
 		return r.getBoundsInLocal();
 	}
 	

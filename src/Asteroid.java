@@ -48,7 +48,7 @@ public class Asteroid {
 	}
 	
 	public Bounds getBounds() {
-		Rectangle r = new Rectangle(this.x, this.y-25, 25, 25);
+		Rectangle r = new Rectangle(this.x, this.y, 70, 70);
 		return r.getBoundsInLocal();
 	}
 	 
