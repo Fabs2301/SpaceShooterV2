@@ -50,13 +50,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
+	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
 	long deathCount;
-	int cursorCorY = 700;
-	int cursorCorX = 110;
+	int cursorCorY = 670;
+	int cursorCorX = 620;
 	double moveText = 50;
 	
 	Font bitFontB = 
@@ -278,7 +278,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 700, 700);
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
 				canvas.getGraphicsContext2D().fillText("Continue", 700, 750);
-				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 700, 800);
+				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 700, 1000);
 				
 				switchSceneToGameOver = false;
 				s.setDead(false);
@@ -297,7 +297,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler		    	ver 2.0", 600, 1020);
 				count ++;
 				//2130
-				if(count == 2130) {
+				if(count >= 2130) {
 					setScene = 4;
 				}
 				System.out.println(count+" frames / 2130 frames");
@@ -510,11 +510,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			s.moveUp(movement);}
 			
 			}else if(setScene == 2) {
-				if(cursorCorY == 800) {
-					cursorCorY = 750;
+				if(cursorCorY == 970) {
+					cursorCorY = 715;
 					cursorSound.play();
-				}else if(cursorCorY == 750) {
-					cursorCorY = 700;
+				}else if(cursorCorY == 715) {
+					cursorCorY = 670;
 					cursorSound.play();
 				}
 			}else if(setScene == 3) {
@@ -541,11 +541,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else {
 			s.moveDown (movement);}}
 			else if(setScene == 2) {
-				if(cursorCorY == 700) {
-					cursorCorY = 750;
+				if(cursorCorY == 670) {
+					cursorCorY = 715;
 					cursorSound.play();
-				}else if(cursorCorY == 750) {
-					cursorCorY = 750;
+				}else if(cursorCorY == 715) {
+					cursorCorY = 970;
 					cursorSound.play();
 				}
 			}else if(setScene == 3) {
@@ -600,17 +600,19 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		case "Enter":
 				if(setScene == 2) {
 
-					if (cursorCorY == 265) {
+					if (cursorCorY == 715) {
 					setScene = 1;
 					s.respawn();
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
 					mediaPlayerCoin.play();
-					}else {
+					}else if(cursorCorY == 670) {
 						setScene = 3;
 						cursorCorY = 100;
 						cursorCorX = 34;
+					}else if(cursorCorY == 970){
+						setScene = 0;
 					}
 				}else if(setScene == 0 || setScene == 4){
 					
@@ -623,8 +625,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}else if(setScene == 3) {
 					if(cursorCorY == 50) {
 						setScene = 2;
-						cursorCorY = 225;
-						cursorCorX = 110;
+						cursorCorY = 670;
+						cursorCorX = 620;
 					}else if(cursorCorY == 100 && shop.getHealthPrice() <= intscore)
 					{
 						intscore = intscore - shop.getHealthPrice();
