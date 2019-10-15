@@ -37,12 +37,12 @@ public class LoadResources
 	public Image i_damagedSpaceship3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship3.png"));
 	public Image i_damagedSpaceship4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedShip4.gif"));
 	
-	//font
+	//fonts
 	public Font bitFontB = Font.loadFont(getClass().getResourceAsStream("\\font\\bitFond.ttf"), 40);
 	public Font bitFontM = Font.loadFont(getClass().getResourceAsStream("\\font\\bitFond.ttf"), 25);
 	public Font bitFontS = Font.loadFont(getClass().getResourceAsStream("\\font\\bitFond.ttf"), 20);
 	
-	//sound
+	//sounds
 	final URL sound1 = getClass().getResource("\\sound\\coinSound.mp3");
 	Media soundl1 = new Media(sound1.toString());
 	final MediaPlayer s_coinSound = new MediaPlayer(soundl1);
