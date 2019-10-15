@@ -275,9 +275,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Your Points: "+intscore, 625, 585);
 			
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 700, 690);
+				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 700, 700);
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
-				canvas.getGraphicsContext2D().fillText("Continue", 700, 730);
+				canvas.getGraphicsContext2D().fillText("Continue", 700, 750);
+				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 700, 800);
+				
 				switchSceneToGameOver = false;
 				s.setDead(false);
 				currentHealth = s.getMaxHealth();
@@ -437,12 +439,16 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				System.out.println(moveText);
 			}else if(setScene == 5) {
-				
+				// Pausscreen
 				
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack,0,0);
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
 				canvas.getGraphicsContext2D().fillText("Pause", 635, 180);
+				canvas.getGraphicsContext2D().setFont(bitFontS);
+				canvas.getGraphicsContext2D().fillText("Continue", 635, 300);
+				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 635, 350);
+				
 			}else if(setScene == 6) {
 				primaryStage.setTitle("SpaceHutter");
 				mediaPlayerGameOver.stop();
