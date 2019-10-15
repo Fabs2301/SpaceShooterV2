@@ -297,7 +297,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler		    	ver 2.0", 600, 1020);
 				count ++;
 				//2130
-				if(count == 2130) {
+				if(count >= 2130) {
 					setScene = 4;
 				}
 				System.out.println(count+" frames / 2130 frames");
