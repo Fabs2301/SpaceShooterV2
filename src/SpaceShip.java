@@ -116,8 +116,8 @@ public class SpaceShip {
 	}
 	
 	public void respawn() {
-		x= 50;
-		y= 50  ;
+		x= 100;
+		y= 100;
 		damageCount = 0;
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 	}

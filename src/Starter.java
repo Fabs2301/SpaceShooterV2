@@ -55,7 +55,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
 	long deathCount;
-	int cursorCorY = 225;
+	int cursorCorY = 700;
 	int cursorCorX = 110;
 	double moveText = 50;
 	
@@ -510,10 +510,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			s.moveUp(movement);}
 			
 			}else if(setScene == 2) {
-				if(cursorCorY == 265) {
-					cursorCorY = 225;
+				if(cursorCorY == 800) {
+					cursorCorY = 750;
 					cursorSound.play();
-				}	
+				}else if(cursorCorY == 750) {
+					cursorCorY = 700;
+					cursorSound.play();
+				}
 			}else if(setScene == 3) {
 			if(cursorCorY == 100) {
 				cursorCorY = 50;
@@ -538,8 +541,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else {
 			s.moveDown (movement);}}
 			else if(setScene == 2) {
-				if(cursorCorY == 225) {
-					cursorCorY = 265;
+				if(cursorCorY == 700) {
+					cursorCorY = 750;
+					cursorSound.play();
+				}else if(cursorCorY == 750) {
+					cursorCorY = 750;
 					cursorSound.play();
 				}
 			}else if(setScene == 3) {
