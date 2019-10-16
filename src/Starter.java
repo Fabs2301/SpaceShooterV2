@@ -50,7 +50,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen
+	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -120,12 +120,36 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 		new AnimationTimer() {
 			
-
+			long prevTime;
 			
+			private boolean needsHandling_FPS(int desiredFrameRatePerSecond)
+			{
+				long currentNanoTime = System.nanoTime();
+
+				// Framerate = x Frames / second.
+				double timePerFrame_s = 1.0 / desiredFrameRatePerSecond;
+				long timePerFrame_ns = (long) (timePerFrame_s * 1e9);
+				
+				if(prevTime + timePerFrame_ns < currentNanoTime)
+				{
+					prevTime = currentNanoTime;
+					return true;
+				}
+				else
+				{
+					return false;
+				}
+			}
 			
 			@Override
 			public void handle(long currentNanoTime) {	
-			if(setScene == 1) {	
+			
+				 if (needsHandling_FPS(100) == false) 
+			        {
+			            return;
+			        }
+				
+				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
  				
@@ -417,20 +441,20 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						"\r\n" +
 						"\r\n" +
 						"\r\n" +
-						"", 50, moveText+160);
+						"", 500, moveText+500);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Controls:",50, moveText+500);
+				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1500);
 				
-				canvas.getGraphicsContext2D().drawImage(controlsArrows, 100, moveText+560);
-				canvas.getGraphicsContext2D().drawImage(controlsSpace, 100, moveText+740);
-				canvas.getGraphicsContext2D().drawImage(controlsShift, 30, moveText+840);
+				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1560);
+				canvas.getGraphicsContext2D().drawImage(controlsSpace, 500, moveText+1740);
+				canvas.getGraphicsContext2D().drawImage(controlsShift, 30, moveText+1840);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Good luck and survive!",50, moveText+1100);
+				canvas.getGraphicsContext2D().fillText("Good luck and survive!",50, moveText+2100);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Press Enter",150, moveText+1240);
+				canvas.getGraphicsContext2D().fillText("Press Enter",150, moveText+2240);
 				
 				if(moveText == -1061.75) {
 					setScene = 0;
@@ -504,7 +528,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		switch (event.getCode().getName()) {
 		case "Up":
 		if(setScene == 1) {	
-			if(s.getY()<88) {
+			if(s.getY()<89) {
 				break;
 			}else {
 			s.moveUp(movement);}
@@ -613,6 +637,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						cursorCorX = 34;
 					}else if(cursorCorY == 970){
 						setScene = 0;
+						count = 0;
 					}
 				}else if(setScene == 0 || setScene == 4){
 					
