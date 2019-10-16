@@ -588,10 +588,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		switch (event.getCode().getName()) {
 		case "Up":
 		if(setScene == 1) {	
-			if(s.getY()<89) {
+			/**if(s.getY()<89) {
 				break;
 			}else {
-			s.moveUp(movement);}
+			s.moveUp(movement);}**/
 			
 			}else if(setScene == 2) {
 				if(cursorCorY == 970) {
@@ -620,10 +620,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		break;
 		case "Down":
 			if(setScene == 1) {
-			if(s.getY()>heigth -180) {
+			/**if(s.getY()>heigth -180) {
 	  	 		 break;
 			}else {
-			s.moveDown (movement);}}
+			s.moveDown (movement);}**/}
 			else if(setScene == 2) {
 				if(cursorCorY == 670) {
 					cursorCorY = 715;
@@ -649,13 +649,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			break; 
 			
 
-		case "Left":
+		/**case "Left":
 			s.moveLeft(movement);
 			break;
 
 		case "Right":
 			s.moveRight(movement);
-			break;
+			break;**/
 
 		case "Space":
 		if(setScene == 1) {	
