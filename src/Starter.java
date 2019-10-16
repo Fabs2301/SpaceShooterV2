@@ -549,13 +549,26 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}
 		}
 	});
-	if(right)
-	{
-		s.moveRight(5);
-	}
+	
 }
 
 	public void handle(KeyEvent event) {
+		if(right)
+		{
+			s.moveRight(5);
+		}
+		if(left)
+		{
+			s.moveLeft(5);
+		}
+		if(up)
+		{
+			s.moveUp(5);
+		}
+		if(down)
+		{
+			s.moveDown(5);
+		}
 		int movement = s.getMovement();
 		
 		final URL sound28 = getClass().getResource("\\sound\\cursorSound.mp3");
