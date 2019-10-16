@@ -8,7 +8,7 @@ Scene sc;
 	boolean left = false;
 	boolean right = false;
 
-bbb
+
 
 		sc.setOnKeyPressed(new EventHandler<KeyEvent>() {
 			@Override

@@ -144,7 +144,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			@Override
 			public void handle(long currentNanoTime) {	
 			
-				 if (needsHandling_FPS(100) == false) 
+				 if (needsHandling_FPS(120) == false) 
 			        {
 			            return;
 			        }

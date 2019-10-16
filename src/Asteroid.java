@@ -12,6 +12,7 @@ public class Asteroid {
 	private int speed = 1;
 	//Image asteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroid.png"));
 	Image damagedAsteroidImage = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroiddamaged.png"));
+	Image asteroid = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroid.png"));
     boolean isDamaged = false;
 	private Integer coordinateWhenRemoved = x ;
 	
@@ -26,7 +27,7 @@ public class Asteroid {
 	}
 	
 	public void paint(GraphicsContext ge) {
-		ge.drawImage(LoadResources.i_asteroid, this.x, this.y);
+		ge.drawImage(asteroid, this.x, this.y);
 	}
 
 	public void reposition(int width, int height) {
@@ -53,7 +54,7 @@ public class Asteroid {
 	}
 	 
 	public void explosion() {
-		LoadResources.i_asteroid = damagedAsteroidImage; 
+		asteroid = damagedAsteroidImage; 
 		coordinateWhenRemoved = x-(20*speed);
 		isDamaged = true;
 		
