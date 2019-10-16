@@ -7,9 +7,11 @@ import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
@@ -21,6 +23,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 	int width = 1920;
 	int heigth = 1080;
+	
+	boolean up = false;
+	boolean down = false;
+	boolean left = false;
+	boolean right = false;
+	int speed = 1;
 	
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
@@ -86,7 +94,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		canvas.setFocusTraversable(true);
 		canvas.setOnKeyPressed(this);
 		root.getChildren().add(canvas);
-		primaryStage.setScene(new Scene(root));
+		Scene sc = new Scene(root);
+		primaryStage.setScene(sc);
 		primaryStage.setFullScreen(true);
 
 						
@@ -506,7 +515,45 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 		}.start();
 
+	
+	sc.setOnKeyPressed(new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent event) {
+			if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) { // don't use toString here!!!
+				right = true;
+			} else if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
+				left = true;
+			} else if (event.getCode() == KeyCode.S || event.getCode() == KeyCode.DOWN) {
+				down = true;
+			} else if (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) {
+				up = true;
+			} else if (event.getCode() == KeyCode.SHIFT) {
+				speed = 9;
+			}
+		}
+	});
+
+	sc.setOnKeyReleased(new EventHandler<KeyEvent>() {
+		@Override
+		public void handle(KeyEvent event) {
+			if (event.getCode() == KeyCode.D || event.getCode() == KeyCode.RIGHT) { // don't use toString here!!!
+				right = false;
+			} else if (event.getCode() == KeyCode.A || event.getCode() == KeyCode.LEFT) {
+				left = false;
+			} else if (event.getCode() == KeyCode.S || event.getCode() == KeyCode.DOWN) {
+				down = false;
+			} else if (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) {
+				up = false;
+			} else if (event.getCode() == KeyCode.SHIFT) {
+				speed = 5;
+			}
+		}
+	});
+	if(right)
+	{
+		s.moveRight(5);
 	}
+}
 
 	public void handle(KeyEvent event) {
 		int movement = s.getMovement();
