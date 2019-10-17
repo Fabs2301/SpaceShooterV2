@@ -28,7 +28,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	boolean down = false;
 	boolean left = false;
 	boolean right = false;
-	int speed = 1;
+	boolean shift = false;
 	
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
@@ -161,7 +161,35 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
- 				
+ 				// Key handler bools:
+				
+				int movement = s.getMovement(); 
+				
+				if(shift) {
+					movement=movement*2;
+				}
+				if(right)
+				{
+					s.moveRight(movement);
+				}
+				if(left)
+				{
+					s.moveLeft(movement);
+					
+				}
+				if(up)
+				{
+					if(s.getY()<89){}else {s.moveUp(movement);}
+					
+				}
+				if(down)
+				{
+					if(s.getY()>heigth -180) {}else {s.moveDown(movement);}
+						
+				}
+				
+				
+				
 				//toogle music
 				if(toogleMusic == false) {
 					inGameMusic.stop();
@@ -528,7 +556,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			} else if (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) {
 				up = true;
 			} else if (event.getCode() == KeyCode.SHIFT) {
-				speed = 9;
+				shift = true;
 			}
 		}
 	});
@@ -545,7 +573,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			} else if (event.getCode() == KeyCode.W || event.getCode() == KeyCode.UP) {
 				up = false;
 			} else if (event.getCode() == KeyCode.SHIFT) {
-				speed = 5;
+				shift = false;
 			}
 		}
 	});
@@ -553,23 +581,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 }
 
 	public void handle(KeyEvent event) {
-		if(right)
-		{
-			s.moveRight(5);
-		}
-		if(left)
-		{
-			s.moveLeft(5);
-		}
-		if(up)
-		{
-			s.moveUp(5);
-		}
-		if(down)
-		{
-			s.moveDown(5);
-		}
-		int movement = s.getMovement();
 		
 		final URL sound28 = getClass().getResource("\\sound\\cursorSound.mp3");
 		Media sound8 = new Media(sound28.toString());
@@ -579,9 +590,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		
 		System.out.println(event.getCode().getName());
 
-		if (event.isShiftDown()) {
-			movement = movement * 2;
-		}
 
 		System.out.println(s.toString());
 		// Controls:

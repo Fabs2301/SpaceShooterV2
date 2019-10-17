@@ -17,7 +17,7 @@ public class SpaceShip {
 	private int damageCount = 0;
 	private int maxHealth = 10;
 	private boolean isDead = false;
-	private int movement = 10;
+	private int movement = 3;
 	public static int intervall = (int)((1.0/120)*2000.0);
 	
 	long cooldown = 0; 

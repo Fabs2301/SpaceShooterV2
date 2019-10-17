@@ -69,12 +69,12 @@ public class Shop {
 		if(speedUpgradeLevel == 0) {
 			speedUpgradeLevel = 1;
 			speedPrice = 200;
-			s.setMovement(14);
+			s.setMovement(5);
 
 		}else if(speedUpgradeLevel == 1) {
 			speedUpgradeLevel = 2;
 			speedPrice = 300;
-			s.setMaxHealth(18);
+			s.setMovement(6);
 			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
@@ -82,7 +82,7 @@ public class Shop {
 		}else if(speedUpgradeLevel == 2) {
 			speedUpgradeLevel = 3;
 			speedPrice = 400;
-			s.setMovement(22);
+			s.setMovement(8);
 			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
@@ -91,7 +91,7 @@ public class Shop {
 			speedUpgradeLevel = 4;
 			// 0 bedeutet ausverkauft
 			speedPrice = 0;
-			s.setMovement(26);
+			s.setMovement(10);
 			final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound10 = new Media(sound33.toString());
 			final MediaPlayer upgradeSound = new MediaPlayer(sound10);
