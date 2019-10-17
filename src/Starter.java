@@ -170,21 +170,21 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(right)
 				{
-					s.moveRight(movement);
+					s.move(Direction.right, movement);
 				}
 				if(left)
 				{
-					s.moveLeft(movement);
+					s.move(Direction.left, movement);
 					
 				}
 				if(up)
 				{
-					if(s.getY()<89){}else {s.moveUp(movement);}
+					if(s.getY()<89){}else {s.move(Direction.up, movement);}
 					
 				}
 				if(down)
 				{
-					if(s.getY()>heigth -180) {}else {s.moveDown(movement);}
+					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement);}
 						
 				}
 				

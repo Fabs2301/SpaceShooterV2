@@ -28,7 +28,7 @@ public class SpaceShip {
 		this.y = y;
 	}
 	
-	public void moveUp(int delta) {
+	/**(public void moveUp(int delta) {
 	if(isDead == false) {
 		y=y-delta;
 	}
@@ -44,15 +44,29 @@ public class SpaceShip {
 		if(isDead == false) {
 			x=x-delta;
 		}
-	}
+	}**/
 	
 	public void setDead(boolean isDead) {
 		this.isDead = isDead;
 	}
 
-	public void moveRight(int delta) {
+	/**public void moveRight(int delta) {
 		if(isDead == false) {
 			x=x+delta;
+		}
+	}**/
+	
+	public void move(Direction d, int delta)
+	{
+		if(isDead == false)
+		{
+			switch(d)
+			{
+			case up: y=y-delta; break;
+			case down: y=y+delta; break;
+			case left: x=x-delta; break;
+			case right: x=x+delta; break;
+			}
 		}
 	}
 	
