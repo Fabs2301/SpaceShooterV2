@@ -58,7 +58,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 1000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
+	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -369,7 +369,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().drawImage(guiBackground, 0, 0);
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
-				canvas.getGraphicsContext2D().fillText("SHOP", 240, 35);
+				canvas.getGraphicsContext2D().fillText("SHOP", 885, 60);
 				
 				String healthPrice;
 				String shootingPrice;
@@ -391,8 +391,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 75);
-				canvas.getGraphicsContext2D().fillText("Back", 490, 75);
+				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 120);
+				canvas.getGraphicsContext2D().fillText("Back", 1800, 120);
 				canvas.getGraphicsContext2D().fillText(healthPrice,475, 135);
 				canvas.getGraphicsContext2D().fillText(shootingPrice,475, 235);
 				canvas.getGraphicsContext2D().fillText(speedPrice,475, 335);
