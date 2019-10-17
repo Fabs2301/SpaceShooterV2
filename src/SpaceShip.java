@@ -18,7 +18,6 @@ public class SpaceShip {
 	private int maxHealth = 10;
 	private boolean isDead = false;
 	private int movement = 3;
-	public static int intervall = (int)((1.0/120)*2000.0);
 	
 	long cooldown = 0; 
 	int shootTime = 500;
@@ -56,8 +55,10 @@ public class SpaceShip {
 		}
 	}**/
 	
-	public void move(Direction d, int delta)
+	public void move(Direction d, int delta, int intervall)
 	{
+		double pixelPerIntervall = this.movement * (intervall / 1000.0);
+		
 		if(isDead == false)
 		{
 			switch(d)

@@ -29,6 +29,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	boolean left = false;
 	boolean right = false;
 	boolean shift = false;
+	final static int FPS = 60;
+	public static int SPRITE_MOVE_INTERVALL = (int)((1.0 / FPS) * 1000.0);
 	
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
@@ -126,7 +128,9 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		final URL sound26 = getClass().getResource("\\sound\\easteregg.mp3");
 		Media sound12 = new Media(sound26.toString());
 		final MediaPlayer easteregg = new MediaPlayer(sound12);
-
+		
+		
+		
 		new AnimationTimer() {
 			
 			long prevTime;
@@ -170,21 +174,21 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(right)
 				{
-					s.move(Direction.right, movement);
+					s.move(Direction.right, movement, SPRITE_MOVE_INTERVALL);
 				}
 				if(left)
 				{
-					s.move(Direction.left, movement);
+					s.move(Direction.left, movement, SPRITE_MOVE_INTERVALL);
 					
 				}
 				if(up)
 				{
-					if(s.getY()<89){}else {s.move(Direction.up, movement);}
+					if(s.getY()<89){}else {s.move(Direction.up, movement, SPRITE_MOVE_INTERVALL);}
 					
 				}
 				if(down)
 				{
-					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement);}
+					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
 						
 				}
 				
