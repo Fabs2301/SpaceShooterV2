@@ -69,8 +69,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int cursorCorX = 620;
 	double moveText = 50;
 	int asteroidCount = 20;
-	int asteroidMaxSpeed;
-	int asteroidMinSpeed;
+	int asteroidMaxSpeed = 6;
+	int asteroidMinSpeed = 1;
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
@@ -400,14 +400,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 120);
 				canvas.getGraphicsContext2D().fillText("Back", 1800, 120);
-				canvas.getGraphicsContext2D().fillText(healthPrice,475, 135);
-				canvas.getGraphicsContext2D().fillText(shootingPrice,475, 235);
-				canvas.getGraphicsContext2D().fillText(speedPrice,475, 335);
+				canvas.getGraphicsContext2D().fillText(healthPrice,475, 535);
+				canvas.getGraphicsContext2D().fillText(shootingPrice,475, 635);
+				canvas.getGraphicsContext2D().fillText(speedPrice,475, 735);
 								
 				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("Health", 100, 105);
-				canvas.getGraphicsContext2D().fillText("Shooting Speed", 100, 205);
-				canvas.getGraphicsContext2D().fillText("Movement Speed", 100, 305);
+				canvas.getGraphicsContext2D().fillText("Health", 100, 505);
+				canvas.getGraphicsContext2D().fillText("Shooting Speed", 100, 605);
+				canvas.getGraphicsContext2D().fillText("Movement Speed", 100, 705);
 			
 
 				
@@ -522,23 +522,23 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				mediaPlayerGameOver.stop();
 				easteregg.play();
 				
-				moveText = moveText-0.38;
+				moveText = moveText-0.8;   //-0.38
 				canvas.getGraphicsContext2D().drawImage(whiteBackground, 0, 0);
 				canvas.getGraphicsContext2D().setFont(bitFontB);
 				canvas.getGraphicsContext2D().setFill(Color.BLACK);
-				canvas.getGraphicsContext2D().fillText("Welcome", 200, moveText+100);
-				canvas.getGraphicsContext2D().fillText("to", 250, moveText+150);
-				canvas.getGraphicsContext2D().fillText("Uwes Easteregg room", 100, moveText+200);
-				canvas.getGraphicsContext2D().drawImage(Image2, 50, moveText+350);
-				canvas.getGraphicsContext2D().drawImage(Image3, 50, moveText+550);
-				canvas.getGraphicsContext2D().drawImage(Image4, 50, moveText+1400);
-				canvas.getGraphicsContext2D().drawImage(Image5, -50, moveText+1600);
+				canvas.getGraphicsContext2D().fillText("Welcome", 840, moveText+170);
+				canvas.getGraphicsContext2D().fillText("to", 930, moveText+220);
+				canvas.getGraphicsContext2D().fillText("Uwes Easteregg room", 600, moveText+270);
+				canvas.getGraphicsContext2D().drawImage(Image2, 700, moveText+450);
+				canvas.getGraphicsContext2D().drawImage(Image3, 500, moveText+850);
+				canvas.getGraphicsContext2D().drawImage(Image4, 700, moveText+2900);
+				canvas.getGraphicsContext2D().drawImage(Image5, 350, moveText+3500);
 				
-				canvas.getGraphicsContext2D().fillText("This game was presented by", 10, moveText+2000);
-				canvas.getGraphicsContext2D().drawImage(Image6, 150, moveText+2000);
+				canvas.getGraphicsContext2D().fillText("This game was presented by", 450, moveText+4500);
+				canvas.getGraphicsContext2D().drawImage(Image6, 700, moveText+4500);
 				
 				System.out.println(moveText);
-				if(moveText == -2134.2400000003076) {
+				if(moveText < -4456.0) {
 					setScene = 2;
 					moveText = 50;
 					easteregg.stop();
@@ -713,6 +713,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}else if(cursorCorY == 970){
 						setScene = 0;
 						count = 0;
+						s.respawn();
 					}
 				}else if(setScene == 0 || setScene == 4){
 					
