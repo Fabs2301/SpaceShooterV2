@@ -30,13 +30,13 @@ public class Asteroid {
 		ge.drawImage(asteroid, this.x, this.y);
 	}
 
-	public void reposition(int width, int height) {
+	public void reposition(int width, int height, int maxSpeed, int minSpeed) {
 		
 		Random rnd = new Random();
 		
 		this.x = width + rnd.nextInt(width);
 		this.y = rnd.nextInt(height)+85;
-		this.speed = rnd.nextInt(6)+1;
+		this.speed = rnd.nextInt(maxSpeed-minSpeed)+minSpeed;
 	}
 	
 	public int getX() {

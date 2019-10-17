@@ -68,6 +68,9 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int cursorCorY = 670;
 	int cursorCorX = 620;
 	double moveText = 50;
+	int asteroidCount = 20;
+	int asteroidMaxSpeed;
+	int asteroidMinSpeed;
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
@@ -105,7 +108,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		for (int i = 0; i < heigth * width / 96000; i++) {
 
 			Asteroid a = new Asteroid(0, 0, 0);
-			a.reposition(width / 2, heigth);
+			a.reposition(width / 2, heigth, asteroidMaxSpeed, asteroidMinSpeed);
 			asteroiden.add(a);
 		}
 		
@@ -248,7 +251,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				if (asteroiden.size() < heigth * width / 96000) {
 					for (int i = 0; i < heigth * width / 96000 - asteroiden.size(); i++) {
 						Asteroid a = new Asteroid(0, 0, 0);
-						a.reposition(width, heigth);
+						a.reposition(width, heigth, asteroidMaxSpeed, asteroidMinSpeed);
 						asteroiden.add(a);
 						System.out.println("Asteroiden Objects:" + asteroiden.size());
 					}
