@@ -61,7 +61,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 10000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 4;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
+	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -350,6 +350,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
 				inGameMusic.stop();
+				easteregg.stop();
 				mediaPlayerGameOver.play();
 				
 				 
@@ -540,7 +541,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 			}else if(setScene == 6) {
 				primaryStage.setTitle("SpaceHutter");
-				mediaPlayerGameOver.stop();
 				easteregg.play();
 				
 				moveText = moveText-0.8;   //-0.38

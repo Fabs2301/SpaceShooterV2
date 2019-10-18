@@ -7,10 +7,10 @@ TODO:
 * Boostbar
 * Spaceship animations
 * Show fps
-
+* Setting Difficulty
 DONE:
 * Smooth Movement /FPS lock	
-* Rising Difficulty / Setting Difficulty
+* Rising Difficulty /
 
 IN PROGRESS:
 * Fullscreen Mode
@@ -19,3 +19,4 @@ Maybe:
 * Multiplayer
 * Controller Input
 * Asteroidenvarriation bzw. Gegnervarriation
+* Secret game mode
