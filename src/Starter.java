@@ -61,7 +61,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 10000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
+	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -433,33 +433,33 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 				
 				if (shop.getHealthUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 220);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 226);
 				} if (shop.getHealthUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 590, 220);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 226);
 				} if (shop.getHealthUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 220);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 226);
 				} if (shop.getHealthUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 220);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 226);
 				}
 				
 				if (shop.getShootingUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 526);
 				} if (shop.getShootingUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 526);
 				} if (shop.getShootingUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 526);
 				} if (shop.getShootingUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 526);
 				}
 				
 				if (shop.getSpeedUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 826);
 				}
 				
 				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 210);
@@ -776,7 +776,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 				}
 			break;
-		case "Esc":
+		case "Backspace":
 			final URL sound32 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound3 = new Media(sound32.toString());
 			final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
