@@ -97,7 +97,7 @@ public class SpaceShip {
 	
 	public Bounds getBounds() {
 		
-		Rectangle r = new Rectangle(this.x, this.y-25, 160, 110);
+		Rectangle r = new Rectangle(this.x, this.y-25, 120, 154);
 		return r.getBoundsInLocal();
 	}
 	
@@ -173,4 +173,4 @@ public class SpaceShip {
 		this.shootTime = shootTime;
 	}
 	
-}//
+}
