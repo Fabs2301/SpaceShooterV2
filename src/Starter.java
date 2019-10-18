@@ -161,18 +161,18 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			@Override
 			public void handle(long currentNanoTime) {	
 			
-				 if (needsHandling_FPS(60) == false) 
+				 if (needsHandling_FPS(120) == false) 
 			        {
 			            return;
 			        }
 				
 				 survivalTime++;
 				 
-				 if(survivalTime%600 == 0)
+				 if(survivalTime%2400 == 0)
 				 {
 					 asteroidMinSpeed++;
 					 asteroidMaxSpeed++;
-					 asteroidCount += 3;
+					 asteroidCount += 4;
 				 }
 				 
 				if(setScene == 1) {	
@@ -712,6 +712,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					if (cursorCorY == 715) {
 					setScene = 1;
 					s.respawn();
+					asteroidCount = 16;
+					asteroidMaxSpeed = 4;
+					asteroidMinSpeed = 1;
+					survivalTime = 0;
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
