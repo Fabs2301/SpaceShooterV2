@@ -163,6 +163,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			@Override
 			public void handle(long currentNanoTime) {	
 
+
 				 if (needsHandling_FPS(120) == false) 
 
 			        {
@@ -466,7 +467,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
 				
 			}else if(setScene == 4) {
-				moveText = moveText-5; // 0,25
+				moveText = moveText-0.40; // 0,25
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText+99.75);
 				
@@ -513,12 +514,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().drawImage(controlsShift, 378, moveText+1940);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Good luck and survive!",500, moveText+2300);
+				canvas.getGraphicsContext2D().fillText("Good luck and survive!",700, moveText+2400);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Press Enter",500, moveText+2400);
+				canvas.getGraphicsContext2D().fillText("Press Enter",740, moveText+2500);
 				
-				if(moveText == -1061.75) {
+				if(moveText < -2290.0) {
 					setScene = 0;
 					count = 0;
 					moveText = 50;
