@@ -68,9 +68,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int cursorCorY = 670;
 	int cursorCorX = 620;
 	double moveText = 50;
-	int asteroidCount = 20;
-	int asteroidMaxSpeed = 6;
+	int asteroidCount = 16;
+	int asteroidMaxSpeed = 4;
 	int asteroidMinSpeed = 1;
+	long survivalTime = 0;
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
@@ -160,11 +161,20 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			@Override
 			public void handle(long currentNanoTime) {	
 			
-				 if (needsHandling_FPS(120) == false) 
+				 if (needsHandling_FPS(60) == false) 
 			        {
 			            return;
 			        }
 				
+				 survivalTime++;
+				 
+				 if(survivalTime%600 == 0)
+				 {
+					 asteroidMinSpeed++;
+					 asteroidMaxSpeed++;
+					 asteroidCount += 3;
+				 }
+				 
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
