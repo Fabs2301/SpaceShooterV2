@@ -3,7 +3,6 @@ import java.util.Random;
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Asteroid {
@@ -50,8 +49,8 @@ public class Asteroid {
 	}
 	
 	public Bounds getBounds() {
-		Circle c = new Circle(35);
-		return c.getBoundsInLocal();
+		Rectangle r = new Rectangle(this.x, this.y, 60, 60);
+		return r.getBoundsInLocal();
 	}
 	 
 	public void explosion() {
