@@ -57,10 +57,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image6.png"));
 	
 	boolean toogleMusic = true;
-	public int intscore = 1000;
+	public int intscore = 10000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
+	int setScene = 4;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	int currentHealth = s.getMaxHealth();
@@ -147,6 +147,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				double timePerFrame_s = 1.0 / desiredFrameRatePerSecond;
 				long timePerFrame_ns = (long) (timePerFrame_s * 1e9);
 				
+				
 				if(prevTime + timePerFrame_ns < currentNanoTime)
 				{
 					prevTime = currentNanoTime;
@@ -156,12 +157,22 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				{
 					return false;
 				}
+				
 			}
 			
 			@Override
 			public void handle(long currentNanoTime) {	
+
+				
+				 
+
 			
+<<<<<<< HEAD
 				 if (needsHandling_FPS(120) == false) 
+=======
+				 if (needsHandling_FPS(60) == false) 
+
+>>>>>>> branch 'master' of https://github.com/Fabs2301/SpaceShooterV2.git
 			        {
 			            return;
 			        }
@@ -391,6 +402,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				String healthPrice;
 				String shootingPrice;
 				String speedPrice;
+				
+				
 				if(shop.getHealthPrice() == 0) {
 					healthPrice = "MAX";
 				}else {
@@ -410,25 +423,28 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 120);
 				canvas.getGraphicsContext2D().fillText("Back", 1800, 120);
-				canvas.getGraphicsContext2D().fillText(healthPrice,475, 535);
-				canvas.getGraphicsContext2D().fillText(shootingPrice,475, 635);
-				canvas.getGraphicsContext2D().fillText(speedPrice,475, 735);
-								
-				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("Health", 100, 505);
-				canvas.getGraphicsContext2D().fillText("Shooting Speed", 100, 605);
-				canvas.getGraphicsContext2D().fillText("Movement Speed", 100, 705);
+				canvas.getGraphicsContext2D().fillText("Health", 200, 200);
+				canvas.getGraphicsContext2D().fillText("Shooting Speed", 200, 500);
+				canvas.getGraphicsContext2D().fillText("Movement Speed", 200, 800);
+				
+				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().fillText(healthPrice,1680, 310);
+				canvas.getGraphicsContext2D().fillText(shootingPrice,1680, 610);
+				canvas.getGraphicsContext2D().fillText(speedPrice,1680, 910);
+				
+				
+
 			
 
 				
 				if (shop.getHealthUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 220);
 				} if (shop.getHealthUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 590, 220);
 				} if (shop.getHealthUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 220);
 				} if (shop.getHealthUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 220);
 				}
 				
 				if (shop.getShootingUpgradeLevel() >= 1) {
@@ -451,16 +467,16 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 311);
 				}
 				
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 110);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 210);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 310);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 210);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 510);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 810);
 				
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
 				
 			}else if(setScene == 4) {
-				moveText = moveText-0.25; // 0,25
+				moveText = moveText-5; // 0,25
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText);
+				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText+99.75);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
@@ -498,17 +514,17 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						"", 500, moveText+500);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1500);
+				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1250);
 				
-				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1560);
+				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1400);
 				canvas.getGraphicsContext2D().drawImage(controlsSpace, 500, moveText+1740);
-				canvas.getGraphicsContext2D().drawImage(controlsShift, 30, moveText+1840);
+				canvas.getGraphicsContext2D().drawImage(controlsShift, 378, moveText+1940);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Good luck and survive!",50, moveText+2100);
+				canvas.getGraphicsContext2D().fillText("Good luck and survive!",500, moveText+2300);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Press Enter",150, moveText+2240);
+				canvas.getGraphicsContext2D().fillText("Press Enter",500, moveText+2400);
 				
 				if(moveText == -1061.75) {
 					setScene = 0;
