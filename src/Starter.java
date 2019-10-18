@@ -791,7 +791,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				setScene = 2;
 			}
 			break;
-		case "F12":
+		case "Home":
 			if (setScene == 2) {
 				setScene = 6;
 				moveText = 50;
