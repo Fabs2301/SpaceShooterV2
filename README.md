@@ -14,6 +14,7 @@ DONE:
 
 IN PROGRESS:
 * Fullscreen Mode
+* Powerups
 
 Maybe:
 * Multiplayer

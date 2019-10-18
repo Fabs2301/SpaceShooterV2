@@ -3,6 +3,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -34,6 +36,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
+	Powerups powerups = new Powerups();
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
 	List<Rocket> rocket = new ArrayList<Rocket>();
@@ -345,6 +348,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 					count ++;
 				}
+
+					
 			}else if(setScene == 2) {
 				//Game Over Screen:
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
