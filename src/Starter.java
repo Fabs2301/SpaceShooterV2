@@ -164,7 +164,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			@Override
 			public void handle(long currentNanoTime) {	
 
-				
+
 				 if (needsHandling_FPS(120) == false) 
 
 			        {
@@ -183,7 +183,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
- 				// Key handler bools:
+ 				// Key handler boobs:
 				
 				int movement = s.getMovement(); 
 				

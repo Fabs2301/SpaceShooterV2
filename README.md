@@ -4,16 +4,15 @@ TODO:
 * Hitboxen anpassen
 * Codecleanup
 * Temporäre Powerups
-
 * Boostbar
 * Spaceship animations
 * Show fps
 
 DONE:
 * Smooth Movement /FPS lock	
+* Rising Difficulty / Setting Difficulty
 
 IN PROGRESS:
-* Rising Difficulty / Setting Difficulty
 * Fullscreen Mode
 
 Maybe:
