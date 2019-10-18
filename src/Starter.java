@@ -167,12 +167,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				 
 
 			
-<<<<<<< HEAD
 				 if (needsHandling_FPS(120) == false) 
-=======
-				 if (needsHandling_FPS(60) == false) 
 
->>>>>>> branch 'master' of https://github.com/Fabs2301/SpaceShooterV2.git
 			        {
 			            return;
 			        }
