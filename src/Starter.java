@@ -48,6 +48,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
 	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
 	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
+	Image wasdControll = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\wasdControll.png"));
 	
 	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image1.png"));
 	Image Image2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image2.png"));
@@ -467,7 +468,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
 				
 			}else if(setScene == 4) {
-				moveText = moveText-0.40; // 0,25
+				moveText = moveText-0.40; // 0,40
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText+99.75);
 				
@@ -510,6 +511,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1250);
 				
 				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1400);
+				canvas.getGraphicsContext2D().drawImage(wasdControll, 1000, moveText+1360);
 				canvas.getGraphicsContext2D().drawImage(controlsSpace, 500, moveText+1740);
 				canvas.getGraphicsContext2D().drawImage(controlsShift, 378, moveText+1940);
 				
