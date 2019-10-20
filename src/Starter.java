@@ -3,6 +3,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Random;
+
 import javafx.animation.AnimationTimer;
 import javafx.application.Application;
 import javafx.event.EventHandler;
@@ -34,6 +36,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
+	Powerups powerups = new Powerups();
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
 	List<Rocket> rocket = new ArrayList<Rocket>();
@@ -48,6 +51,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
 	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
 	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
+	Image wasdControll = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\wasdControll.png"));
 	
 	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image1.png"));
 	Image Image2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image2.png"));
@@ -57,7 +61,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image6.png"));
 	
 	boolean toogleMusic = true;
-	public int intscore = 1000;
+	public int intscore = 10000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
 	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
@@ -68,9 +72,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int cursorCorY = 670;
 	int cursorCorX = 620;
 	double moveText = 50;
-	int asteroidCount = 20;
-	int asteroidMaxSpeed = 6;
+	int asteroidCount = 16;
+	int asteroidMaxSpeed = 4;
 	int asteroidMinSpeed = 1;
+	long survivalTime = 0;
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
@@ -146,6 +151,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				double timePerFrame_s = 1.0 / desiredFrameRatePerSecond;
 				long timePerFrame_ns = (long) (timePerFrame_s * 1e9);
 				
+				
 				if(prevTime + timePerFrame_ns < currentNanoTime)
 				{
 					prevTime = currentNanoTime;
@@ -155,20 +161,32 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				{
 					return false;
 				}
+				
 			}
 			
 			@Override
 			public void handle(long currentNanoTime) {	
-			
+
+
 				 if (needsHandling_FPS(120) == false) 
+
 			        {
 			            return;
 			        }
 				
+				 survivalTime++;
+				 
+				 if(survivalTime%2400 == 0)
+				 {
+					 asteroidMinSpeed++;
+					 asteroidMaxSpeed++;
+					 asteroidCount += 4;
+				 }
+				 
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
- 				// Key handler bools:
+ 				// Key handler boobs:
 				
 				int movement = s.getMovement(); 
 				
@@ -330,11 +348,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 					count ++;
 				}
+
+					
 			}else if(setScene == 2) {
 				//Game Over Screen:
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
 				inGameMusic.stop();
+				easteregg.stop();
 				mediaPlayerGameOver.play();
 				
 				 
@@ -381,6 +402,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				String healthPrice;
 				String shootingPrice;
 				String speedPrice;
+				
+				
 				if(shop.getHealthPrice() == 0) {
 					healthPrice = "MAX";
 				}else {
@@ -400,57 +423,60 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 120);
 				canvas.getGraphicsContext2D().fillText("Back", 1800, 120);
-				canvas.getGraphicsContext2D().fillText(healthPrice,475, 535);
-				canvas.getGraphicsContext2D().fillText(shootingPrice,475, 635);
-				canvas.getGraphicsContext2D().fillText(speedPrice,475, 735);
-								
-				canvas.getGraphicsContext2D().setFont(bitFontS);
-				canvas.getGraphicsContext2D().fillText("Health", 100, 505);
-				canvas.getGraphicsContext2D().fillText("Shooting Speed", 100, 605);
-				canvas.getGraphicsContext2D().fillText("Movement Speed", 100, 705);
+				canvas.getGraphicsContext2D().fillText("Health", 200, 200);
+				canvas.getGraphicsContext2D().fillText("Shooting Speed", 200, 500);
+				canvas.getGraphicsContext2D().fillText("Movement Speed", 200, 800);
+				
+				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().fillText(healthPrice,1680, 310);
+				canvas.getGraphicsContext2D().fillText(shootingPrice,1680, 610);
+				canvas.getGraphicsContext2D().fillText(speedPrice,1680, 910);
+				
+				
+
 			
 
 				
 				if (shop.getHealthUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 226);
 				} if (shop.getHealthUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 226);
 				} if (shop.getHealthUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 226);
 				} if (shop.getHealthUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 111);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 226);
 				}
 				
 				if (shop.getShootingUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 526);
 				} if (shop.getShootingUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 526);
 				} if (shop.getShootingUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 526);
 				} if (shop.getShootingUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 211);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 526);
 				}
 				
 				if (shop.getSpeedUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 107, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 197, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 282, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 372, 311);
+					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 826);
 				}
 				
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 110);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 210);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 100, 310);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 210);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 510);
+				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 810);
 				
 				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
 				
 			}else if(setScene == 4) {
-				moveText = moveText-0.25; // 0,25
+				moveText = moveText-0.40; // 0,40
 				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText);
+				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText+99.75);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
@@ -488,19 +514,20 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						"", 500, moveText+500);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1500);
+				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1250);
 				
-				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1560);
+				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1400);
+				canvas.getGraphicsContext2D().drawImage(wasdControll, 1000, moveText+1360);
 				canvas.getGraphicsContext2D().drawImage(controlsSpace, 500, moveText+1740);
-				canvas.getGraphicsContext2D().drawImage(controlsShift, 30, moveText+1840);
+				canvas.getGraphicsContext2D().drawImage(controlsShift, 378, moveText+1940);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
-				canvas.getGraphicsContext2D().fillText("Good luck and survive!",50, moveText+2100);
+				canvas.getGraphicsContext2D().fillText("Good luck and survive!",700, moveText+2400);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontB);
-				canvas.getGraphicsContext2D().fillText("Press Enter",150, moveText+2240);
+				canvas.getGraphicsContext2D().fillText("Press Enter",740, moveText+2500);
 				
-				if(moveText == -1061.75) {
+				if(moveText < -2290.0) {
 					setScene = 0;
 					count = 0;
 					moveText = 50;
@@ -519,7 +546,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 			}else if(setScene == 6) {
 				primaryStage.setTitle("SpaceHutter");
-				mediaPlayerGameOver.stop();
 				easteregg.play();
 				
 				moveText = moveText-0.8;   //-0.38
@@ -697,6 +723,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					if (cursorCorY == 715) {
 					setScene = 1;
 					s.respawn();
+					asteroidCount = 16;
+					asteroidMaxSpeed = 4;
+					asteroidMinSpeed = 1;
+					survivalTime = 0;
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
@@ -746,7 +776,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 				}
 			break;
-		case "Esc":
+		case "Backspace":
 			final URL sound32 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound3 = new Media(sound32.toString());
 			final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
@@ -761,7 +791,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				setScene = 2;
 			}
 			break;
-		case "F12":
+		case "Home":
 			if (setScene == 2) {
 				setScene = 6;
 				moveText = 50;
