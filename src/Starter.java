@@ -792,10 +792,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}
 			break;
 		case "Home":
-			if (setScene == 2) {
+			/**if (setScene == 2) {
 				setScene = 6;
 				moveText = 50;
-			}
+			}**/
 		}
 	}
 
