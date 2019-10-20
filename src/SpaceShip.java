@@ -1,7 +1,11 @@
 
+import java.net.URL;
+
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 
@@ -92,6 +96,12 @@ public class SpaceShip {
 	public Rocket fire() {
 		
 		Rocket r = new Rocket(this.x+125, this.y+55, -5);
+		
+		final URL sound29 = getClass().getResource("\\sound\\PewSound.mp3");
+		Media sound = new Media(sound29.toString());
+		final MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.play();
+		
 		return r;
 	}
 	
