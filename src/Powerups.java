@@ -25,12 +25,14 @@ public class Powerups {
 		this.y = rnd.nextInt(880) + 100;
 		//Debug:
 		System.out.println("Powerup:"+ powerup+"X:" +x +"Y:"+y);
-		switch (powerup) {
-		case 0: powerupToDraw = powerup01;
-		case 1: powerupToDraw = powerup02;
-		case 2: powerupToDraw = powerup03;
-		case 3: powerupToDraw = powerup04;
-		isCollected = false;
+		if(powerup == 0) {
+			powerupToDraw = powerup01;
+		}else if (powerup == 1) {
+			powerupToDraw = powerup02;
+		}else if (powerup == 2) {
+			powerupToDraw = powerup03;
+		}else if (powerup == 3) {
+			powerupToDraw = powerup04;
 		}
 		
 	}
