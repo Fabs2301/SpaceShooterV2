@@ -76,6 +76,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int asteroidMaxSpeed = 4;
 	int asteroidMinSpeed = 1;
 	long survivalTime = 0;
+	boolean poweruphasbeenspawned = false;
 	
 	Font bitFontB = 
             Font.loadFont(getClass()
@@ -214,7 +215,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				
 				
-				
 				//toogle music
 				if(toogleMusic == false) {
 					inGameMusic.stop();
@@ -349,7 +349,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					count ++;
 				}
 
-					
+				if(poweruphasbeenspawned == false) {
+					powerups.spawnPowerup();
+					poweruphasbeenspawned = true;
+				}
+				powerups.paint(canvas.getGraphicsContext2D());	
+				
+				
 			}else if(setScene == 2) {
 				//Game Over Screen:
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
