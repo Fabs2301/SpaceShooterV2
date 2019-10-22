@@ -3,6 +3,7 @@ import java.util.Random;
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 
 public class Powerups {
@@ -55,6 +56,7 @@ public class Powerups {
 		Rectangle r = new Rectangle(this.x, this.y, 60, 60);
 		return r.getBoundsInLocal();
 	}
+	
 	
 	
 }

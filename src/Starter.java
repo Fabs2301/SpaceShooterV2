@@ -311,6 +311,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						} 
  
 					}
+					
+					if (powerups.getBounds().intersects(s.getBounds())) {
+						poweruphasbeenspawned = false;
+					}
+					
  					for (Iterator<Rocket> iterator1 = rocket.iterator(); iterator1.hasNext();) {
 						Rocket rck = iterator1.next();
 						if (rck.getBounds().intersects(ast.getBounds()) && ast.isDamaged == false) {
@@ -322,6 +327,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						}
 
 					}
+ 					
+ 					
 					if (ast.isShouldBeRemoved() == true) {
 						iterator.remove();
 					}
@@ -358,6 +365,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 			}else if(setScene == 2) {
 				//Game Over Screen:
+				poweruphasbeenspawned = false;
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
 				inGameMusic.stop();
