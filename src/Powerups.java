@@ -11,6 +11,7 @@ public class Powerups {
 	private int x;
 	private int y;
 	private boolean isCollected;
+	private int poweruptype;
 	
 	Image powerup01 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\powerup01.png"));
 	Image powerup02 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\powerup02.png"));
@@ -23,18 +24,18 @@ public class Powerups {
 	public void spawnPowerup() {
 		Random rnd = new Random();
 		// Randomly spawns a powerup.
-		int powerup = rnd.nextInt(4);
+		poweruptype = rnd.nextInt(4);
 		this.x = rnd.nextInt(1720) + 100;
 		this.y = rnd.nextInt(880) + 100;
 		//Debug:
-		System.out.println("Powerup:"+ powerup+"X:" +x +"Y:"+y);
-		if(powerup == 0) {
+		System.out.println("Powerup:"+ poweruptype+"X:" +x +"Y:"+y);
+		if(poweruptype == 0) {
 			powerupToDraw = powerup01;
-		}else if (powerup == 1) {
+		}else if (poweruptype == 1) {
 			powerupToDraw = powerup02;
-		}else if (powerup == 2) {
+		}else if (poweruptype == 2) {
 			powerupToDraw = powerup03;
-		}else if (powerup == 3) {
+		}else if (poweruptype == 3) {
 			powerupToDraw = powerup04;
 		}
 		
