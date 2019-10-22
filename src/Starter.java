@@ -67,7 +67,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
-	int currentHealth = s.getMaxHealth();
 	long deathCount;
 	int cursorCorY = 670;
 	int cursorCorX = 620;
@@ -239,14 +238,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 				//GUI Upadate:
 				
-				if(currentHealth >0) {
-					 currentHealth = s.getMaxHealth() -s.getDamageCount();
+				if(s.currentHealth >0) {
+					 s.currentHealth = s.getMaxHealth() -s.getDamageCount();
 				}
 				
 				canvas.getGraphicsContext2D().setFont(bitFontM);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
 				canvas.getGraphicsContext2D().fillText(score, 1600, 45);
-				canvas.getGraphicsContext2D().fillText("Health:"+ currentHealth+"/"+s.getMaxHealth(), 20, 45);
+				canvas.getGraphicsContext2D().fillText("Health:"+ s.currentHealth+"/"+s.getMaxHealth(), 20, 45);
 				
 				canvas.getGraphicsContext2D().setFont(bitFontS);
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
@@ -385,7 +384,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 				switchSceneToGameOver = false;
 				s.setDead(false);
-				currentHealth = s.getMaxHealth();
+				s.currentHealth = s.getMaxHealth();
 			}else if (setScene == 0) {
 				//Title screen:
 				titleTheme.play();

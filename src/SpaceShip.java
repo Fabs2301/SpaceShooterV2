@@ -20,6 +20,7 @@ public class SpaceShip {
 	private int y = 0;
 	private int damageCount = 0;
 	private int maxHealth = 10;
+	int currentHealth;
 	private boolean isDead = false;
 	private int movement = 3;
 	
