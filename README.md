@@ -15,6 +15,13 @@ DONE:
 IN PROGRESS:
 * Fullscreen Mode
 * Powerups
+	* Health Pack
+	* Shield
+	* Boost
+	* Double Rocket
+	* Shoot Speed
+	* Point Pack
+	* All Screen Cleanup
 
 Maybe:
 * Multiplayer

@@ -354,10 +354,9 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 					count ++;
 				}
-
+				//Powerupspawning
 				if(poweruphasbeenspawned == false) {
-					powerups.spawnPowerup();
-					poweruphasbeenspawned = true;
+					poweruphasbeenspawned = powerups.spawnPowerup();
 				}
 				powerups.paint(canvas.getGraphicsContext2D());	
 				

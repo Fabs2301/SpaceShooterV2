@@ -10,8 +10,9 @@ public class Powerups {
 
 	private int x;
 	private int y;
-	private boolean isCollected;
 	private int poweruptype;
+	private int randomSpawnNumber;
+	Random rnd = new Random();
 	
 	Image powerup01 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\powerup01.png"));
 	Image powerup02 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\powerup02.png"));
@@ -21,42 +22,45 @@ public class Powerups {
 	Image powerupToDraw;
 	
 	
-	public void spawnPowerup() {
-		Random rnd = new Random();
+	public boolean spawnPowerup() {
+		this.randomSpawnNumber = rnd.nextInt(50);
+		System.out.println(randomSpawnNumber);
+		
+		if(randomSpawnNumber == 5) {
 		// Randomly spawns a powerup.
 		poweruptype = rnd.nextInt(4);
 		this.x = rnd.nextInt(1720) + 100;
 		this.y = rnd.nextInt(880) + 100;
-		//Debug:
-		System.out.println("Powerup:"+ poweruptype+"X:" +x +"Y:"+y);
-		if(poweruptype == 0) {
-			powerupToDraw = powerup01;
-		}else if (poweruptype == 1) {
-			powerupToDraw = powerup02;
-		}else if (poweruptype == 2) {
-			powerupToDraw = powerup03;
-		}else if (poweruptype == 3) {
-			powerupToDraw = powerup04;
+			//Debug:
+			System.out.println("Powerup:"+ poweruptype+"X:" +x +"Y:"+y);
+			if(poweruptype == 0) {
+				powerupToDraw = powerup01;
+			}else if (poweruptype == 1) {
+				powerupToDraw = powerup02;
+			}else if (poweruptype == 2) {
+				powerupToDraw = powerup03;
+			}else if (poweruptype == 3) {
+				powerupToDraw = powerup04;
+			}
+			
+			return true;
+		}else {
+			return false;
 		}
-		
 	}
 	
 	public void paint(GraphicsContext ge) {
 		ge.drawImage(powerupToDraw, this.x, this.y);
 	}
 
-	public boolean isCollected() {
-		return isCollected;
-	}
-
-	public void setCollected(boolean isCollected) {
-		this.isCollected = isCollected;
-	}
+	
 	
 	public Bounds getBounds() {
 		Rectangle r = new Rectangle(this.x, this.y, 60, 60);
 		return r.getBoundsInLocal();
 	}
+	
+	public void takePowerupsOut
 	
 	
 	
