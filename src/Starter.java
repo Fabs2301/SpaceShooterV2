@@ -31,6 +31,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	boolean left = false;
 	boolean right = false;
 	boolean shift = false;
+	boolean space = false;
 	final static int FPS = 60;
 	public static int SPRITE_MOVE_INTERVALL = (int)((1.0 / FPS) * 1000.0);
 	
@@ -211,6 +212,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				{
 					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
 						
+				}if(space) {
+					if(s.canFire() == true) {
+					Rocket r = s.fire();
+					rocket.add(r);
+					System.out.println("Rocket Obejts:" + rocket.size());
+					}
 				}
 				
 				
@@ -603,7 +610,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				up = true;
 			} else if (event.getCode() == KeyCode.SHIFT) {
 				shift = true;
+			} else if (event.getCode() == KeyCode.SPACE) {
+				space = true;
 			}
+			
 		}
 	});
 
@@ -620,6 +630,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				up = false;
 			} else if (event.getCode() == KeyCode.SHIFT) {
 				shift = false;
+			} else if (event.getCode() == KeyCode.SPACE) {
+				space = false;
 			}
 		}
 	});
@@ -709,18 +721,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 		case "Right":
 			s.moveRight(movement);
-			break;**/
+			break;
 
 		case "Space":
 		if(setScene == 1) {	
-			if(s.canFire() == true) {
-			Rocket r = s.fire();
-			rocket.add(r);
-			System.out.println("Rocket Obejts:" + rocket.size());
-			}
+			if(s.canFire() == true) {}
 			}
 			break;
-			
+			**/
 		case "M":
 			if(toogleMusic == false) {
 				toogleMusic = true;
