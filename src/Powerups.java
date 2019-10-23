@@ -23,10 +23,10 @@ public class Powerups {
 	
 	
 	public boolean spawnPowerup() {
-		this.randomSpawnNumber = rnd.nextInt(50);
+		this.randomSpawnNumber = rnd.nextInt(1000);
 		System.out.println(randomSpawnNumber);
 		
-		if(randomSpawnNumber == 5) {
+		if(randomSpawnNumber == 500) {
 		// Randomly spawns a powerup.
 		poweruptype = rnd.nextInt(4);
 		this.x = rnd.nextInt(1720) + 100;
@@ -60,7 +60,11 @@ public class Powerups {
 		return r.getBoundsInLocal();
 	}
 	
-	public void takePowerupsOut
+	public void takePowerupsOutBounds() {
+		this.x = 2000;
+		this.y = 2000;
+		
+	}
 	
 	
 	

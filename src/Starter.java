@@ -313,6 +313,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					
 					if (powerups.getBounds().intersects(s.getBounds())) {
 						poweruphasbeenspawned = false;
+						powerups.takePowerupsOutBounds();
 					}
 					
  					for (Iterator<Rocket> iterator1 = rocket.iterator(); iterator1.hasNext();) {
