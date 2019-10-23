@@ -38,28 +38,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	SpaceShip s = new SpaceShip(500, 500);
 	Shop shop = new Shop(0,0,0);
 	Powerups powerups = new Powerups();
+	LoadResources lr = new LoadResources();
 	
 	List<Asteroid> asteroiden = new ArrayList<Asteroid>();
 	List<Rocket> rocket = new ArrayList<Rocket>();
-	Image background = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\giphy.gif"));
-	Image gameOverImg = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\gameOver.gif"));
-	Image titleImg = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\title.png"));
-	Image guiBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\GUIBackground.png"));
-	Image cursor = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Arrow.png"));
-	Image upgradeBox = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\updateBox.png"));
-	Image upgradeBlock = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\upgradeBlock.png"));
-	Image controlsArrows = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsArrows.png"));
-	Image controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
-	Image controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
-	Image whiteBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
-	Image wasdControll = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\wasdControll.png"));
-	
-	Image Image1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image1.png"));
-	Image Image2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image2.png"));
-	Image Image3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image3.png"));
-	Image Image4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image4.jpg"));
-	Image Image5 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image5.png"));
-	Image Image6 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Image6.png"));
 	
 	boolean toogleMusic = true;
 	public int intscore = 10000;
@@ -78,18 +60,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	long survivalTime = 0;
 	boolean poweruphasbeenspawned = false;
 	
-	Font bitFontB = 
-            Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 40);
-	
-	Font bitFontM = 
-            Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 25);
-	
-	Font bitFontS = 
-            Font.loadFont(getClass()
-                .getResourceAsStream("\\font\\bitFond.ttf"), 20);
-	
 
 	public static void main (String args[]) {
 		Application.launch();
@@ -98,7 +68,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public void start(final Stage primaryStage) throws Exception {
 
 		primaryStage.setTitle("SpaceShooter");
-		primaryStage.getIcons().add(titleImg);
+		primaryStage.getIcons().add(lr.getI_title());
 		final Image backgroundimageBlack = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\black.png"));
 		Group root = new Group();
 		final Canvas canvas = new Canvas(1920, 1080);
@@ -240,8 +210,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				// Screen blanking and background:
 				canvas.getGraphicsContext2D().clearRect(0, 0, primaryStage.getWidth(), primaryStage.getHeight());
-				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(guiBackground, 0, 0);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_giphy(), 0, 0);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_GuiBackground(), 0, 0);
 				
 				//GUI Upadate:
 				
@@ -249,12 +219,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					 s.currentHealth = s.getMaxHealth() -s.getDamageCount();
 				}
 				
-				canvas.getGraphicsContext2D().setFont(bitFontM);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontM());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
 				canvas.getGraphicsContext2D().fillText(score, 1600, 45);
 				canvas.getGraphicsContext2D().fillText("Health:"+ s.currentHealth+"/"+s.getMaxHealth(), 20, 45);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontS);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontS());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
 				canvas.getGraphicsContext2D().fillText(music, 0, 1080);
 				// paint cycle(paints ship)
@@ -344,10 +314,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						s.setDead(true);
 						if(switchSceneToGameOver == false) {
 						deathCount = count;	
-						
+					
 					final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
 					Media sound6 = new Media(sound27.toString());
 					final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
+					
 					mediaPlayerExplosion.play();
 						}
 						switchSceneToGameOver = true;
@@ -373,19 +344,19 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				//Game Over Screen:
 				poweruphasbeenspawned = false;
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(gameOverImg, 625, 100);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_gameOver(), 625, 100);
 				inGameMusic.stop();
 				easteregg.stop();
 				mediaPlayerGameOver.play();
 				
 				 
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);;
 				canvas.getGraphicsContext2D().fillText("Your Points: "+intscore, 625, 585);
 			
-				canvas.getGraphicsContext2D().setFont(bitFontM);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontM());
 				canvas.getGraphicsContext2D().fillText("Upgrade Space Ship", 700, 700);
-				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Arrow(), cursorCorX, cursorCorY);
 				canvas.getGraphicsContext2D().fillText("Continue", 700, 750);
 				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 700, 1000);
 				
@@ -395,14 +366,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else if (setScene == 0) {
 				//Title screen:
 				titleTheme.play();
-				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 460, 150);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_giphy(), 0, 0);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_title(), 460, 150);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
 				canvas.getGraphicsContext2D().fillText("Press Enter", 750, 800);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontS);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontS());
 				canvas.getGraphicsContext2D().fillText("© 2019 Fabian Gruber & Marcel Winkler		    	ver 2.0", 600, 1020);
 				count ++;
 				//2130
@@ -414,8 +385,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}else if(setScene == 3) {
 				
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(guiBackground, 0, 0);
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_GuiBackground(), 0, 0);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
 				canvas.getGraphicsContext2D().fillText("SHOP", 885, 60);
 				
@@ -440,14 +411,14 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					speedPrice = shop.getSpeedPrice()+" P.";
 				}
 				
-				canvas.getGraphicsContext2D().setFont(bitFontM);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontM());
 				canvas.getGraphicsContext2D().fillText("Points: "+intscore, 5, 120);
 				canvas.getGraphicsContext2D().fillText("Back", 1800, 120);
 				canvas.getGraphicsContext2D().fillText("Health", 200, 200);
 				canvas.getGraphicsContext2D().fillText("Shooting Speed", 200, 500);
 				canvas.getGraphicsContext2D().fillText("Movement Speed", 200, 800);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().fillText(healthPrice,1680, 310);
 				canvas.getGraphicsContext2D().fillText(shootingPrice,1680, 610);
 				canvas.getGraphicsContext2D().fillText(speedPrice,1680, 910);
@@ -458,47 +429,47 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 				
 				if (shop.getHealthUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 226);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 236, 226);
 				} if (shop.getHealthUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 226);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 585, 226);
 				} if (shop.getHealthUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 226);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 940, 226);
 				} if (shop.getHealthUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 226);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 1288, 226);
 				}
 				
 				if (shop.getShootingUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 526);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 236, 526);
 				} if (shop.getShootingUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 526);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 585, 526);
 				} if (shop.getShootingUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 526);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 940, 526);
 				} if (shop.getShootingUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 526);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 1288, 526);
 				}
 				
 				if (shop.getSpeedUpgradeLevel() >= 1) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 236, 826);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 236, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 2) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 585, 826);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 585, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 3) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 940, 826);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 940, 826);
 				} if (shop.getSpeedUpgradeLevel() >= 4) {
-					canvas.getGraphicsContext2D().drawImage(upgradeBlock, 1288, 826);
+					canvas.getGraphicsContext2D().drawImage(lr.getI_upgradeBlock(), 1288, 826);
 				}
 				
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 210);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 510);
-				canvas.getGraphicsContext2D().drawImage(upgradeBox, 200, 810);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_updateBox(), 200, 210);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_updateBox(), 200, 510);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_updateBox(), 200, 810);
 				
-				canvas.getGraphicsContext2D().drawImage(cursor, cursorCorX, cursorCorY);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Arrow(), cursorCorX, cursorCorY);
 				
 			}else if(setScene == 4) {
 				moveText = moveText-0.40; // 0,40
-				canvas.getGraphicsContext2D().drawImage(background, 0, 0);
-				canvas.getGraphicsContext2D().drawImage(titleImg, 460, moveText+99.75);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_giphy(), 0, 0);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_title(), 460, moveText+99.75);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontS);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontS());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
 				canvas.getGraphicsContext2D().fillText("A long time ago in a galaxy far, far away....\r\n" + 
 						"\r\n" + 
@@ -533,18 +504,18 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						"\r\n" +
 						"", 500, moveText+500);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().fillText("Controls:",500, moveText+1250);
 				
-				canvas.getGraphicsContext2D().drawImage(controlsArrows, 500, moveText+1400);
-				canvas.getGraphicsContext2D().drawImage(wasdControll, 1000, moveText+1360);
-				canvas.getGraphicsContext2D().drawImage(controlsSpace, 500, moveText+1740);
-				canvas.getGraphicsContext2D().drawImage(controlsShift, 378, moveText+1940);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_controlsArrows(), 500, moveText+1400);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_wasdControll(), 1000, moveText+1360);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_controlsSpace(), 500, moveText+1740);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_controlsShift(), 378, moveText+1940);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontM);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontM());
 				canvas.getGraphicsContext2D().fillText("Good luck and survive!",700, moveText+2400);
 				
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().fillText("Press Enter",740, moveText+2500);
 				
 				if(moveText < -2290.0) {
@@ -557,10 +528,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				// Pausscreen
 				
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack,0,0);
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().setFill(Color.WHITE);
 				canvas.getGraphicsContext2D().fillText("Pause", 635, 180);
-				canvas.getGraphicsContext2D().setFont(bitFontS);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontS());
 				canvas.getGraphicsContext2D().fillText("Continue", 635, 300);
 				canvas.getGraphicsContext2D().fillText("Exit to Titlescreen", 635, 350);
 				
@@ -569,19 +540,19 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				easteregg.play();
 				
 				moveText = moveText-0.8;   //-0.38
-				canvas.getGraphicsContext2D().drawImage(whiteBackground, 0, 0);
-				canvas.getGraphicsContext2D().setFont(bitFontB);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_White(), 0, 0);
+				canvas.getGraphicsContext2D().setFont(lr.getF_BitFontB());
 				canvas.getGraphicsContext2D().setFill(Color.BLACK);
 				canvas.getGraphicsContext2D().fillText("Welcome", 840, moveText+170);
 				canvas.getGraphicsContext2D().fillText("to", 930, moveText+220);
 				canvas.getGraphicsContext2D().fillText("Uwes Easteregg room", 600, moveText+270);
-				canvas.getGraphicsContext2D().drawImage(Image2, 700, moveText+450);
-				canvas.getGraphicsContext2D().drawImage(Image3, 500, moveText+850);
-				canvas.getGraphicsContext2D().drawImage(Image4, 700, moveText+2900);
-				canvas.getGraphicsContext2D().drawImage(Image5, 350, moveText+3500);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Image2(), 700, moveText+450);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Image3(), 500, moveText+850);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Image4(), 700, moveText+2900);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Image5(), 350, moveText+3500);
 				
 				canvas.getGraphicsContext2D().fillText("This game was presented by", 450, moveText+4500);
-				canvas.getGraphicsContext2D().drawImage(Image6, 700, moveText+4500);
+				canvas.getGraphicsContext2D().drawImage(lr.getI_Image6(), 700, moveText+4500);
 				
 				System.out.println(moveText);
 				if(moveText < -4456.0) {
@@ -639,6 +610,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 }
 
 	public void handle(KeyEvent event) {
+		
 		
 		final URL sound28 = getClass().getResource("\\sound\\cursorSound.mp3");
 		Media sound8 = new Media(sound28.toString());
@@ -748,9 +720,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					asteroidMaxSpeed = 4;
 					asteroidMinSpeed = 1;
 					survivalTime = 0;
+					
+					
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
+					
 					mediaPlayerCoin.play();
 					}else if(cursorCorY == 670) {
 						setScene = 3;
@@ -766,6 +741,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
+					
 					mediaPlayerCoin.play();
 					setScene = 1;
 					count = 0;
@@ -790,14 +766,17 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						score="Points: "+intscore;
 						shop.upgradeSpeed(s);
 					}else{
+						
 						final URL sound31 = getClass().getResource("\\sound\\NoSound.mp3");
 						Media sound3 = new Media(sound31.toString());
 						final MediaPlayer NoSound = new MediaPlayer(sound3);
+						
 						NoSound.play();
 					}
 				}
 			break;
 		case "Backspace":
+			
 			final URL sound32 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound3 = new Media(sound32.toString());
 			final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
