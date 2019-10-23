@@ -28,3 +28,6 @@ Maybe:
 * Controller Input
 * Asteroidenvarriation bzw. Gegnervarriation
 * Secret game mode
+* Powerups
+	* Homing Missle
+	* Laser
