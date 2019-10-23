@@ -90,7 +90,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		
 		primaryStage.show();
 		
-		/**
+		
 		final URL sound23 = getClass().getResource("\\sound\\inGameMusic.mp3");
 		Media sound = new Media(sound23.toString());
 		final MediaPlayer inGameMusic = new MediaPlayer(sound);
@@ -107,7 +107,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		final URL sound26 = getClass().getResource("\\sound\\easteregg.mp3");
 		Media sound12 = new Media(sound26.toString());
 		final MediaPlayer easteregg = new MediaPlayer(sound12);
-		**/
+		
 		
 		
 		new AnimationTimer() {
@@ -314,11 +314,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						s.setDead(true);
 						if(switchSceneToGameOver == false) {
 						deathCount = count;	
-					/**	
+					
 					final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
 					Media sound6 = new Media(sound27.toString());
 					final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
-					**/
+					
 					mediaPlayerExplosion.play();
 						}
 						switchSceneToGameOver = true;
@@ -611,11 +611,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 
 	public void handle(KeyEvent event) {
 		
-		/**
+		
 		final URL sound28 = getClass().getResource("\\sound\\cursorSound.mp3");
 		Media sound8 = new Media(sound28.toString());
 		final MediaPlayer cursorSound = new MediaPlayer(sound8);
-		**/
+		
 		// Debug:
 		
 		System.out.println(event.getCode().getName());
@@ -721,11 +721,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					asteroidMinSpeed = 1;
 					survivalTime = 0;
 					
-					/**
+					
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
-					**/
+					
 					mediaPlayerCoin.play();
 					}else if(cursorCorY == 670) {
 						setScene = 3;
@@ -737,11 +737,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						s.respawn();
 					}
 				}else if(setScene == 0 || setScene == 4){
-					/**
+					
 					final URL sound30 = getClass().getResource("\\sound\\coinSound.mp3");
 					Media sound3 = new Media(sound30.toString());
 					final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
-					**/
+					
 					mediaPlayerCoin.play();
 					setScene = 1;
 					count = 0;
@@ -766,21 +766,21 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						score="Points: "+intscore;
 						shop.upgradeSpeed(s);
 					}else{
-						/**
+						
 						final URL sound31 = getClass().getResource("\\sound\\NoSound.mp3");
 						Media sound3 = new Media(sound31.toString());
 						final MediaPlayer NoSound = new MediaPlayer(sound3);
-						**/
+						
 						NoSound.play();
 					}
 				}
 			break;
 		case "Backspace":
-			/**
+			
 			final URL sound32 = getClass().getResource("\\sound\\coinSound.mp3");
 			Media sound3 = new Media(sound32.toString());
 			final MediaPlayer mediaPlayerCoin = new MediaPlayer(sound3);
-			**/
+			
 			if (setScene == 1) {
 				setScene = 5;
 				mediaPlayerCoin.play();

@@ -12,12 +12,12 @@ public class LoadResources
 	Image i_Arrow = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\Arrow.png"));
 	Image i_asteroid = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroid.png"));
 	Image i_asteroiddamaged = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\asteroiddamaged.png"));
-	Image i_background_test = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\background_test.jpg"));
+	//Image i_background_test = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\background_test.jpg"));
 	Image i_black = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\black.png"));
 	Image i_controlsArrows = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsArrows.png"));
 	Image i_controlsShift = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsShift.png"));
 	Image i_controlsSpace = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\controlsSpace.png"));
-	Image i_translucentBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\translucentBackground.png"));
+	//Image i_translucentBackground = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\translucentBackground.png"));
 	Image i_White = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\White.png"));
 	Image i_gameOver = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\gameOver.gif"));
 	Image i_giphy = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\giphy.gif"));
@@ -91,9 +91,11 @@ public class LoadResources
 	public Image getI_asteroiddamaged() {
 		return i_asteroiddamaged;
 	}
+	/**
 	public Image getI_background_test() {
 		return i_background_test;
 	}
+	**/
 	public Image getI_black() {
 		return i_black;
 	}
@@ -106,9 +108,11 @@ public class LoadResources
 	public Image getI_controlsSpace() {
 		return i_controlsSpace;
 	}
+	/**
 	public Image getI_translucentBackground() {
 		return i_translucentBackground;
 	}
+	**/
 	public Image getI_White() {
 		return i_White;
 	}
