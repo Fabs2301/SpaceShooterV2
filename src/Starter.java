@@ -47,7 +47,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	public int intscore = 10000;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
-	int setScene = 2;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
+	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
 	boolean switchSceneToGameOver = false;
 	long count = 0;
 	long deathCount;
@@ -157,6 +157,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
+				s.currentHealth = s.getMaxHealth();
  				// Key handler boobs:
 				
 				int movement = s.getMovement(); 
@@ -792,10 +793,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}
 			break;
 		case "Home":
-			/**if (setScene == 2) {
+			if (setScene == 2) {
 				setScene = 6;
 				moveText = 50;
-			}**/
+			}
 		}
 	}
 
