@@ -99,7 +99,7 @@ public class Powerups {
 				s.setDamagecount(0);
 			}
 		break;
-		//case 2: s.setMovement(s.getMovement()+10); break;
+		case 2: s.setMovement(s.getMovement()+10); break;
 		default: System.out.println("error");
 		}
 		
