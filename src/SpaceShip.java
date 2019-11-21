@@ -194,6 +194,12 @@ public class SpaceShip {
 		this.currentHealth = currentHealth;
 	}
 	
+	
+	
+	public void setDamageCount(int damageCount) {
+		this.damageCount = damageCount;
+	}
+
 	public void activateShield() {
 		this.shieldActivated = true;
 		image = shield;

@@ -1,7 +1,5 @@
 import java.util.Random;
 
-import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
-
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -92,11 +90,11 @@ public class Powerups {
 		case 1: 
 			if(s.currentHealth+2<s.getMaxHealth())
 			{
-				s.setDamagecount(s.getDamagecount()-2);
+				s.setDamageCount(s.getDamageCount()-2);
 			}
 			else
 			{
-				s.setDamagecount(0);
+				s.setDamageCount(0);
 			}
 		break;
 		case 2: s.setMovement(s.getMovement()+10); break;
