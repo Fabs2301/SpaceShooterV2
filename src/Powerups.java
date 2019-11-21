@@ -23,42 +23,45 @@ public class Powerups {
 	 * 
 	 * @return
 	 * -1 false
-	 *  0
-	 *  1
-	 *  2
-	 *  3 
+	 *  0 rocket
+	 *  1 health
+	 *  2 speed
+	 *  3 shield
 	 */
 	
-	public int spawnPowerup() {
+	public boolean spawnPowerup() {
 		this.randomSpawnNumber = rnd.nextInt(1000);
 		System.out.println(randomSpawnNumber);
+		//System.out.println("test");
 		
-		if(randomSpawnNumber == 500) {
+		if(randomSpawnNumber == 500) 
+		{
 		// Randomly spawns a powerup.
-		poweruptype = rnd.nextInt(4);
-		this.x = rnd.nextInt(1720) + 100;
-		this.y = rnd.nextInt(880) + 100;
+			poweruptype = rnd.nextInt(3)+1;
+			this.x = rnd.nextInt(1720) + 100;
+			this.y = rnd.nextInt(880) + 100;
 			//Debug:
-			System.out.println("Powerup:"+ poweruptype+"X:" +x +"Y:"+y);
-			if(poweruptype == 0) {
+			System.out.println("Powerup:"+ poweruptype+" X:" +x +"Y:"+y);
+			if(poweruptype == 0) 
+			{
 				powerupToDraw = powerup01;
-				return 0;
-			}else if (poweruptype == 1) {
-				powerupToDraw = powerup02;
-				return 1;
-			}else if (poweruptype == 2) {
-				powerupToDraw = powerup03;
-				return 2;
-			}else if (poweruptype == 3) {
-				powerupToDraw = powerup04;
-				return 3;
 			}
-			
-		}else {
-			return -1;
+			else if (poweruptype == 1) 
+			{
+				powerupToDraw = powerup02;
+			}
+			else if (poweruptype == 2) 
+			{
+				powerupToDraw = powerup03;
+			}
+			else if (poweruptype == 3) 
+			{
+				powerupToDraw = powerup04;
+				
+			}
+			return true;
 		}
-		//Damit Compiler sich nicht aufregt.
-		return -1;
+		return false;
 	}
 	
 	public void paint(GraphicsContext ge) {
@@ -72,12 +75,21 @@ public class Powerups {
 		return r.getBoundsInLocal();
 	}
 	
-	public void takePowerupsOutBounds(SpaceShip s) {
+	public void takePowerupsOutBounds() 
+	{
 		this.x = 2000;
 		this.y = 2000;
-	if(poweruptype == 1) {
-		s.setCurrentHealth(s.getMaxHealth());
+		
 	}
+	
+	public void usePowerUp(int type, SpaceShip s)
+	{
+		switch(type)
+		{
+		case 1: s.setCurrentHealth(s.getMaxHealth()); break;
+		case 2: s.setMovement(s.getMovement()+10); break;
+		default: System.out.println("error");
+		}
 		
 	}
 	

@@ -126,13 +126,16 @@ public class SpaceShip {
 			}
 
 			System.out.println("AUUUUUUUUUTSCH!");
-		}
+		}	
+		//System.out.println("AUUUUUUUUUTSCH!");
+
 		if(shieldhealth == 0) {
 		shieldActivated = false;
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 		}else {
 			shieldhealth--;
 		}
+
 	}
 
 	public int getX() {
