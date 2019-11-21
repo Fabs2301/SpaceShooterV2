@@ -154,7 +154,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
 				s.currentHealth = s.getMaxHealth();
- 				// Key handler boobs:
+ 				// Key handler bools:
 				
 				int movement = s.getMovement(); 
 				
@@ -797,8 +797,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			break;
 		case "Home":
 			if (setScene == 2) {
-				setScene = 6;
-				moveText = 50;
+				/**setScene = 6;
+				moveText = 50;**/
 			}
 		}
 	}
