@@ -107,9 +107,6 @@ public class SpaceShip {
 
 	}
 	
-
-	
-	
 	public Rocket fire() {
 		
 		Rocket r = new Rocket(this.x+125, this.y+55, -5);
