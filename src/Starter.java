@@ -40,7 +40,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	List<Rocket> rocket = new ArrayList<Rocket>();
 	
 	boolean toogleMusic = true;
-	public int intscore = 10000;
+	public int intscore = 0;
 	String score = "Points:"+intscore;
 	String music = "Music: off (M)";
 	int setScene = 0;	//sets the scene in the game 0 = title screen, 1 = game screen, 2 = game over screen, 3 = shop screen, 4 = storyscreen, 5 = PauseScreen, 6 = EasterEgg Screen
@@ -379,6 +379,16 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				System.out.println(count+" frames / 2130 frames");
 				
+				//Ingame music loop (2:48 min) 
+				Double musicTimer = titleTheme.getCurrentTime().toSeconds();
+				System.out.println(musicTimer);
+				if(musicTimer > 140.0) {
+					titleTheme.stop();
+					titleTheme.play();
+					setScene = 0;
+					count = 0;
+				}
+				
 			}else if(setScene == 3) {
 				
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
@@ -637,16 +647,16 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					cursorSound.play();
 				}
 			}else if(setScene == 3) {
-			if(cursorCorY == 100) {
-				cursorCorY = 50;
-				cursorCorX = 430;
+			if(cursorCorY == 170) {
+				cursorCorY = 90;
+				cursorCorX = 1730;
 				cursorSound.play();
-			}else if(cursorCorY == 200) {
-				cursorCorY = 100;
-				cursorCorX = 34;
+			}else if(cursorCorY == 470) {
+				cursorCorY = 170;
+				cursorCorX = 125;
 				cursorSound.play();
-			}else if(cursorCorY == 300) {
-				cursorCorY = 200;
+			}else if(cursorCorY == 770) {
+				cursorCorY = 470;
 				cursorSound.play();
 			}
 
@@ -654,11 +664,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}
 		break;
 		case "Down":
-			if(setScene == 1) {
-			/**if(s.getY()>heigth -180) {
-	  	 		 break;
-			}else {
-			s.moveDown (movement);}**/}
+			if(setScene == 1) {}
 			else if(setScene == 2) {
 				if(cursorCorY == 670) {
 					cursorCorY = 715;
@@ -668,16 +674,16 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					cursorSound.play();
 				}
 			}else if(setScene == 3) {
-				if(cursorCorY == 50) {
-					cursorCorY = 100;
-					cursorCorX = 34;
+				if(cursorCorY == 90) {
+					cursorCorY = 170;
+					cursorCorX = 125;
 					cursorSound.play();
-				}else if(cursorCorY == 100) {
-					cursorCorY = 200;
-					cursorCorX = 34;
+				}else if(cursorCorY == 170) {
+					cursorCorY = 470;
+					cursorCorX = 125;
 					cursorSound.play();
-				}else if(cursorCorY == 200) {
-					cursorCorY = 300;
+				}else if(cursorCorY == 470) {
+					cursorCorY = 770;
 					cursorSound.play();
 				}
 			}
@@ -726,8 +732,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					mediaPlayerCoin.play();
 					}else if(cursorCorY == 670) {
 						setScene = 3;
-						cursorCorY = 100;
-						cursorCorX = 34;
+						cursorCorY = 170;
+						cursorCorX = 134;
 					}else if(cursorCorY == 970){
 						setScene = 0;
 						count = 0;
@@ -742,22 +748,23 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					mediaPlayerCoin.play();
 					setScene = 1;
 					count = 0;
+					
 				}else if(setScene == 3) {
-					if(cursorCorY == 50) {
+					if(cursorCorY == 90) {
 						setScene = 2;
 						cursorCorY = 670;
 						cursorCorX = 620;
-					}else if(cursorCorY == 100 && shop.getHealthPrice() <= intscore)
+					}else if(cursorCorY == 170 && shop.getHealthPrice() <= intscore)
 					{
 						intscore = intscore - shop.getHealthPrice();
 						score="Points: "+intscore;
 						shop.upgradeHealth(s);
-					}else if(cursorCorY == 200 && shop.getShootingPrice() <= intscore) 
+					}else if(cursorCorY == 470 && shop.getShootingPrice() <= intscore) 
 					{	intscore = intscore - shop.getShootingPrice();
 						score="Points: "+intscore;
 						shop.upgradeShooting(s);
 						
-					}else if(cursorCorY == 300 && shop.getSpeedPrice() <= intscore)
+					}else if(cursorCorY == 770 && shop.getSpeedPrice() <= intscore)
 					{
 						intscore = intscore - shop.getSpeedPrice();
 						score="Points: "+intscore;
