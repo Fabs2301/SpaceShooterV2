@@ -124,7 +124,7 @@ public class SpaceShip {
 			damageCount ++;
 		}
 		
-		System.out.println("AUUUUUUUUUTSCH!");
+		//System.out.println("AUUUUUUUUUTSCH!");
 	}
 
 	public int getX() {

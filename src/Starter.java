@@ -54,7 +54,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int asteroidMaxSpeed = 4;
 	int asteroidMinSpeed = 1;
 	long survivalTime = 0;
-	int poweruphasbeenspawned = -1;
+	boolean powerupMoved = false;
 	
 
 	public static void main (String args[]) {
@@ -75,7 +75,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.setScene(sc);
 		primaryStage.setFullScreen(true);
 
-						
+		
+		
+		
+		
 		// Create Asteroiden
 		for (int i = 0; i < heigth * width / 96000; i++) {
 
@@ -150,6 +153,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					 asteroidCount += 4;
 				 }
 				 
+				//Powerups
+				 if(powerupMoved == false)
+				 {
+					powerupMoved = powerups.spawnPowerup();
+					powerups.paint(canvas.getGraphicsContext2D());
+				 }
+				 
 				if(setScene == 1) {	
 				mediaPlayerGameOver.stop();
 				titleTheme.stop();
@@ -183,7 +193,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					if(s.canFire() == true) {
 					Rocket r = s.fire();
 					rocket.add(r);
-					System.out.println("Rocket Obejts:" + rocket.size());
+					//System.out.println("Rocket Obejts:" + rocket.size());
 					}
 				}
 				
@@ -244,7 +254,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						Asteroid a = new Asteroid(0, 0, 0);
 						a.reposition(width, heigth, asteroidMaxSpeed, asteroidMinSpeed);
 						asteroiden.add(a);
-						System.out.println("Asteroiden Objects:" + asteroiden.size());
+						//System.out.println("Asteroiden Objects:" + asteroiden.size());
 					}
 				}
 				// -------------------------------------------------------------------------------------------
@@ -285,10 +295,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
  
 					}
 					
-					if (powerups.getBounds().intersects(s.getBounds())) {
-						poweruphasbeenspawned = -1;
-						powerups.takePowerupsOutBounds(s);
+					if(s.getBounds().intersects(powerups.getBounds()))
+					{
+						powerups.takePowerupsOutBounds();
 					}
+				
 					
  					for (Iterator<Rocket> iterator1 = rocket.iterator(); iterator1.hasNext();) {
 						Rocket rck = iterator1.next();
@@ -322,24 +333,19 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						
 
 						}
-					
 
-					
 					if(switchSceneToGameOver == true  && count >= deathCount+2200) {
 						setScene = 2;
 					}
 					count ++;
 				}
 				//Powerupspawning
-				if(poweruphasbeenspawned == -1) {
-					poweruphasbeenspawned = powerups.spawnPowerup();
-				}
+				
 				powerups.paint(canvas.getGraphicsContext2D());	
 				
 				
 			}else if(setScene == 2) {
-				//Game Over Screen:
-				poweruphasbeenspawned = -1;
+				//Game Over Screen
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(lr.getI_gameOver(), 625, 100);
 				inGameMusic.stop();
@@ -377,11 +383,11 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				if(count >= 2130) {
 					setScene = 4;
 				}
-				System.out.println(count+" frames / 2130 frames");
+				//System.out.println(count+" frames / 2130 frames");
 				
 				//Ingame music loop (2:48 min) 
 				Double musicTimer = titleTheme.getCurrentTime().toSeconds();
-				System.out.println(musicTimer);
+				//System.out.println(musicTimer);
 				if(musicTimer > 140.0) {
 					titleTheme.stop();
 					titleTheme.play();
@@ -530,7 +536,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					count = 0;
 					moveText = 50;
 				}
-				System.out.println(moveText);
+				//System.out.println(moveText);
 			}else if(setScene == 5) {
 				// Pausscreen
 				
@@ -561,7 +567,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				canvas.getGraphicsContext2D().fillText("This game was presented by", 450, moveText+4500);
 				canvas.getGraphicsContext2D().drawImage(lr.getI_Image6(), 700, moveText+4500);
 				
-				System.out.println(moveText);
+				//System.out.println(moveText);
 				if(moveText < -4456.0) {
 					setScene = 2;
 					moveText = 50;
@@ -628,7 +634,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		System.out.println(event.getCode().getName());
 
 
-		System.out.println(s.toString());
+		//System.out.println(s.toString());
 		// Controls:
 		switch (event.getCode().getName()) {
 		case "Up":
