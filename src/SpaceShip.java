@@ -15,6 +15,7 @@ public class SpaceShip {
 	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship2.png"));
 	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship3.png"));
 	Image imagedamaged4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedShip4.gif"));
+	Image shield = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\shield.png"));
 	private int x = 0;
 	private int y = 0;
 	private int damageCount = 0;
@@ -183,5 +184,9 @@ public class SpaceShip {
 	
 	public void setCurrentHealth(int currentHealth) {
 		this.currentHealth = currentHealth;
+	}
+	
+	public void activateShield() {
+		
 	}
 }
