@@ -14,16 +14,14 @@ DONE:
 * Smooth Movement /FPS lock	
 * Rising Difficulty /
 * Fullscreen Mode
-
-IN PROGRESS:
 * Powerups
 * Health Pack
 * Shield
-* Boost
-* Double Rocket
 * Shoot Speed
 * Point Pack
-* All Screen Cleanup
+
+IN PROGRESS:
+*Project is finished
 
 Maybe:
 * Multiplayer
@@ -33,3 +31,6 @@ Maybe:
 * Powerups
 * Homing Missle
 * Laser
+* Boost
+* Double Rocket
+* All Screen Cleanup
