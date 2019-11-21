@@ -295,7 +295,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					if(s.getBounds().intersects(powerups.getBounds()))
 					{
 						powerups.takePowerupsOutBounds();
-						powerups.usePowerUp(s);
+						intscore = powerups.usePowerUp(s, intscore);
+						score = "Points:"+intscore;
 						powerupMoved = false;
 					}
 				

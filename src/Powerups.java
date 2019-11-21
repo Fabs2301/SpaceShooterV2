@@ -25,19 +25,19 @@ public class Powerups {
 	 * -1 false
 	 *  0 rocket
 	 *  1 health
-	 *  2 speed
+	 *  2 coins
 	 *  3 shield
 	 */
 	
 	public boolean spawnPowerup() {
-		this.randomSpawnNumber = rnd.nextInt(10);
+		this.randomSpawnNumber = rnd.nextInt(1000);
 		//System.out.println(randomSpawnNumber);
 		//System.out.println("test");
 		
-		if(randomSpawnNumber == 5) 
+		if(randomSpawnNumber == 500) 
 		{
 		// Randomly spawns a powerup.
-			poweruptype = rnd.nextInt(3)+1;
+			poweruptype = rnd.nextInt(4);
 			this.x = rnd.nextInt(1720) + 100;
 			this.y = rnd.nextInt(880) + 100;
 			//Debug:
@@ -83,10 +83,12 @@ public class Powerups {
 		
 	}
 	
-	public void usePowerUp(SpaceShip s)
+	public int usePowerUp(SpaceShip s, int score)
 	{
+		int r = score;
 		switch(poweruptype)
 		{
+		case 0: s.fastShoot(); break;
 		case 1: 
 			if(s.currentHealth+2<s.getMaxHealth())
 			{
@@ -97,9 +99,11 @@ public class Powerups {
 				s.setDamageCount(0);
 			}
 		break;
-		case 2: s.setMovement(s.getMovement()+10); break;
+		case 2: r+=50; break;
+		case 3: s.activateShield(); break;
 		default: System.out.println("error");
 		}
+		return r;
 		
 	}
 	
