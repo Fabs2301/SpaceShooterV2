@@ -26,7 +26,9 @@ public class SpaceShip {
 	long cooldown = 0; 
 	int shootTime = 500;
 	private boolean shieldActivated = false;
-	private int shieldhealth = 4;
+	private int shieldhealth = 2;
+	int counter = 0;
+	boolean fastShoot = false;
 	
 	public SpaceShip(int x, int y) {
 		this.x = x;
@@ -86,6 +88,16 @@ public class SpaceShip {
 		ge.drawImage(imagedamaged4, this.x, this.y);
 	}else {
 		ge.drawImage(this.image, this.x, this.y);
+		if(fastShoot == true)
+		{
+			counter ++;
+			if(counter>300)
+			{
+				fastShoot = false;
+				counter = 0;
+			}
+		}
+		
 	}
 
 
@@ -158,16 +170,19 @@ public class SpaceShip {
 	public boolean canFire()
     {
         long currentTime = System.currentTimeMillis();
-        
-		if(currentTime - cooldown >= shootTime) 
+        if(fastShoot == false)
         {
-             cooldown = currentTime;
-             return true;
+			if(currentTime - cooldown >= shootTime) 
+	        {
+	             cooldown = currentTime;
+	             return true;
+	        }
+	        else 
+	        {
+	            return false;
+	        }
         }
-        else 
-        {
-            return false;
-        }
+		return true;
     }
 
 	public int getMaxHealth() {
@@ -198,6 +213,11 @@ public class SpaceShip {
 	
 	public void setDamageCount(int damageCount) {
 		this.damageCount = damageCount;
+	}
+	
+	public void fastShoot()
+	{
+		fastShoot = true;
 	}
 
 	public void activateShield() {
