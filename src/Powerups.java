@@ -1,5 +1,7 @@
 import java.util.Random;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MaximizeAction;
+
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
@@ -31,7 +33,7 @@ public class Powerups {
 	
 	public boolean spawnPowerup() {
 		this.randomSpawnNumber = rnd.nextInt(10);
-		System.out.println(randomSpawnNumber);
+		//System.out.println(randomSpawnNumber);
 		//System.out.println("test");
 		
 		if(randomSpawnNumber == 5) 
@@ -80,14 +82,24 @@ public class Powerups {
 		this.x = 2000;
 		this.y = 2000;
 		
+		
 	}
 	
-	public void usePowerUp(int type, SpaceShip s)
+	public void usePowerUp(SpaceShip s)
 	{
-		switch(type)
+		switch(poweruptype)
 		{
-		case 1: s.setCurrentHealth(s.getMaxHealth()); break;
-		case 2: s.setMovement(s.getMovement()+10); break;
+		case 1: 
+			if(s.currentHealth+2<s.getMaxHealth())
+			{
+				s.setDamagecount(s.getDamagecount()-2);
+			}
+			else
+			{
+				s.setDamagecount(0);
+			}
+		break;
+		//case 2: s.setMovement(s.getMovement()+10); break;
 		default: System.out.println("error");
 		}
 		
