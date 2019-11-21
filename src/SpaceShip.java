@@ -190,16 +190,14 @@ public class SpaceShip {
 		this.shootTime = shootTime;
 	}
 	
-	public void setCurrentHealth(int currentHealth) {
-		this.currentHealth = currentHealth;
-	}
-	
-	
-	
 	public void setDamageCount(int damageCount) {
 		this.damageCount = damageCount;
 	}
 
+	public void setCurrentHealth(int currentHealth) {
+		this.currentHealth = currentHealth;
+	}
+	
 	public void activateShield() {
 		this.shieldActivated = true;
 		image = shield;
