@@ -184,4 +184,7 @@ public class SpaceShip {
 		this.shootTime = shootTime;
 	}
 	
+	public void setCurrentHealth(int currentHealth) {
+		this.currentHealth = currentHealth;
+	}
 }

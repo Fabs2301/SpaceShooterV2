@@ -20,9 +20,17 @@ public class Powerups {
 	Image powerup04 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\powerup04.png"));
 	
 	Image powerupToDraw;
+	/**
+	 * 
+	 * @return
+	 * -1 false
+	 *  0
+	 *  1
+	 *  2
+	 *  3 
+	 */
 	
-	
-	public boolean spawnPowerup() {
+	public int spawnPowerup() {
 		this.randomSpawnNumber = rnd.nextInt(1000);
 		System.out.println(randomSpawnNumber);
 		
@@ -35,18 +43,23 @@ public class Powerups {
 			System.out.println("Powerup:"+ poweruptype+"X:" +x +"Y:"+y);
 			if(poweruptype == 0) {
 				powerupToDraw = powerup01;
+				return 0;
 			}else if (poweruptype == 1) {
 				powerupToDraw = powerup02;
+				return 1;
 			}else if (poweruptype == 2) {
 				powerupToDraw = powerup03;
+				return 2;
 			}else if (poweruptype == 3) {
 				powerupToDraw = powerup04;
+				return 3;
 			}
 			
-			return true;
 		}else {
-			return false;
+			return -1;
 		}
+		//Damit Compiler sich nicht aufregt.
+		return -1;
 	}
 	
 	public void paint(GraphicsContext ge) {
@@ -60,9 +73,12 @@ public class Powerups {
 		return r.getBoundsInLocal();
 	}
 	
-	public void takePowerupsOutBounds() {
+	public void takePowerupsOutBounds(SpaceShip s) {
 		this.x = 2000;
 		this.y = 2000;
+	if(poweruptype == 1) {
+		s.setCurrentHealth(s.getMaxHealth());
+	}
 		
 	}
 	

@@ -58,7 +58,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	int asteroidMaxSpeed = 4;
 	int asteroidMinSpeed = 1;
 	long survivalTime = 0;
-	boolean poweruphasbeenspawned = false;
+	int poweruphasbeenspawned = -1;
 	
 
 	public static void main (String args[]) {
@@ -290,8 +290,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					}
 					
 					if (powerups.getBounds().intersects(s.getBounds())) {
-						poweruphasbeenspawned = false;
-						powerups.takePowerupsOutBounds();
+						poweruphasbeenspawned = -1;
+						powerups.takePowerupsOutBounds(s);
 					}
 					
  					for (Iterator<Rocket> iterator1 = rocket.iterator(); iterator1.hasNext();) {
@@ -335,7 +335,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 					count ++;
 				}
 				//Powerupspawning
-				if(poweruphasbeenspawned == false) {
+				if(poweruphasbeenspawned == -1) {
 					poweruphasbeenspawned = powerups.spawnPowerup();
 				}
 				powerups.paint(canvas.getGraphicsContext2D());	
@@ -343,7 +343,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				
 			}else if(setScene == 2) {
 				//Game Over Screen:
-				poweruphasbeenspawned = false;
+				poweruphasbeenspawned = -1;
 				canvas.getGraphicsContext2D().drawImage(backgroundimageBlack, 0, 0);
 				canvas.getGraphicsContext2D().drawImage(lr.getI_gameOver(), 625, 100);
 				inGameMusic.stop();
