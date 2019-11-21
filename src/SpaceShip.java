@@ -20,6 +20,7 @@ public class SpaceShip {
 	private int y = 0;
 	private int damageCount = 0;
 	private int maxHealth = 10;
+	int currentHealth;
 	private boolean isDead = false;
 	private int movement = 3;
 	long cooldown = 0; 
@@ -126,16 +127,13 @@ public class SpaceShip {
 			}
 
 			System.out.println("AUUUUUUUUUTSCH!");
-		}	
-		//System.out.println("AUUUUUUUUUTSCH!");
-
+		}
 		if(shieldhealth == 0) {
 		shieldActivated = false;
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 		}else {
 			shieldhealth--;
 		}
-
 	}
 
 	public int getX() {
@@ -192,12 +190,13 @@ public class SpaceShip {
 		this.shootTime = shootTime;
 	}
 	
+	public void setCurrentHealth(int currentHealth) {
+		this.currentHealth = currentHealth;
+	}
 	
 	public void activateShield() {
 		this.shieldActivated = true;
 		image = shield;
 		shieldhealth = 4;
 	}
-	
-	
 }
