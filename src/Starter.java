@@ -76,9 +76,6 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 		primaryStage.setFullScreen(true);
 
 		
-		
-		
-		
 		// Create Asteroiden
 		for (int i = 0; i < heigth * width / 96000; i++) {
 
