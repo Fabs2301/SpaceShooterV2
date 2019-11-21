@@ -1,8 +1,11 @@
+import java.net.URL;
 import java.util.Random;
 
 import javafx.geometry.Bounds;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
 
 public class Powerups {
@@ -99,7 +102,9 @@ public class Powerups {
 				s.setDamageCount(0);
 			}
 		break;
-		case 2: r+=50; break;
+		case 2: r+=50; final URL sound33 = getClass().getResource("\\sound\\coinSound.mp3");
+				Media sound10 = new Media(sound33.toString());
+				final MediaPlayer upgradeSound = new MediaPlayer(sound10);upgradeSound.play();break;
 		case 3: s.activateShield(); break;
 		default: System.out.println("error");
 		}
