@@ -56,6 +56,10 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	long survivalTime = 0;
 	boolean powerupMoved = false;
 	
+	final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
+	Media sound6 = new Media(sound27.toString());
+	final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
+	
 
 	public static void main (String args[]) {
 		Application.launch();
@@ -330,10 +334,8 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 						if(switchSceneToGameOver == false) {
 						deathCount = count;	
 					
-					final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
-					Media sound6 = new Media(sound27.toString());
-					final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
 					
+					mediaPlayerExplosion.stop();
 					mediaPlayerExplosion.play();
 						}
 						switchSceneToGameOver = true;
