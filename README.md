@@ -1,10 +1,9 @@
 # SpaceShooterV2
-Author: Fabian Gruber and Marcel Winkler @ HTL Leoben
+
 
 TODO:
 * Hitboxen anpassen
 * Codecleanup
-* Temporäre Powerups
 * Boostbar
 * Spaceship animations
 * Show fps
@@ -12,16 +11,18 @@ TODO:
 
 DONE:
 * Smooth Movement /FPS lock	
-* Rising Difficulty /
+* Rising Difficulty
 * Fullscreen Mode
-* Powerups
-* Health Pack
-* Shield
-* Shoot Speed
-* Point Pack
+<<<<<<< HEAD
+
 
 IN PROGRESS:
 *Project is finished
+=======
+* Temporäre Powerups
+
+
+>>>>>>> branch 'master' of https://github.com/Fabs2301/SpaceShooterV2
 
 Maybe:
 * Multiplayer

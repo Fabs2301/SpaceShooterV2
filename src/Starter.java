@@ -189,6 +189,13 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}if(space) {
 					if(s.canFire() == true) {
 					Rocket r = s.fire();
+					/**
+					final URL sound29 = getClass().getResource("\\sound\\PewSound.mp3");
+					Media sound = new Media(sound29.toString());
+					final MediaPlayer mediaPlayer = new MediaPlayer(sound);
+					mediaPlayer.play();
+					**/
+					
 					rocket.add(r);
 					//System.out.println("Rocket Obejts:" + rocket.size());
 					}
