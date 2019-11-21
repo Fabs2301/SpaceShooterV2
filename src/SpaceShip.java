@@ -15,6 +15,7 @@ public class SpaceShip {
 	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship2.png"));
 	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship3.png"));
 	Image imagedamaged4 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedShip4.gif"));
+	Image shield = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceshipShield.png"));
 	private int x = 0;
 	private int y = 0;
 	private int damageCount = 0;
@@ -22,9 +23,10 @@ public class SpaceShip {
 	int currentHealth;
 	private boolean isDead = false;
 	private int movement = 3;
-	
 	long cooldown = 0; 
 	int shootTime = 500;
+	private boolean shieldActivated = false;
+	private int shieldhealth = 4;
 	
 	public SpaceShip(int x, int y) {
 		this.x = x;
@@ -110,21 +112,31 @@ public class SpaceShip {
 	}
 	
 	public void damage() {
-		
-		if(damageCount == maxHealth/4) {
-			image = imagedamaged1;
-			damageCount ++;
-		}else if(damageCount == maxHealth/4*2) {
-			image = imagedamaged2;
-			damageCount++;
-		}else if(damageCount == maxHealth/4 *3) {
-			image = imagedamaged3;
-			damageCount ++;
-		}else {
-			damageCount ++;
-		}
-		
+		if (shieldActivated == false) {
+			if (damageCount == maxHealth / 4) {
+				image = imagedamaged1;
+				damageCount++;
+			} else if (damageCount == maxHealth / 4 * 2) {
+				image = imagedamaged2;
+				damageCount++;
+			} else if (damageCount == maxHealth / 4 * 3) {
+				image = imagedamaged3;
+				damageCount++;
+			} else {
+				damageCount++;
+			}
+
+			System.out.println("AUUUUUUUUUTSCH!");
+		}	
 		//System.out.println("AUUUUUUUUUTSCH!");
+
+		if(shieldhealth == 0) {
+		shieldActivated = false;
+		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
+		}else {
+			shieldhealth--;
+		}
+
 	}
 
 	public int getX() {
@@ -183,5 +195,11 @@ public class SpaceShip {
 	
 	public void setCurrentHealth(int currentHealth) {
 		this.currentHealth = currentHealth;
+	}
+	
+	public void activateShield() {
+		this.shieldActivated = true;
+		image = shield;
+		shieldhealth = 4;
 	}
 }
