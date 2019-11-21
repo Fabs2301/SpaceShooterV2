@@ -7,11 +7,10 @@ import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 
 public class SpaceShip {
-//
-	Image image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
+	LoadResources lr = new LoadResources();
+	Image image = lr.getI_spaceship();
 	Image imagedamaged1 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship1.png"));
 	Image imagedamaged2 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship2.png"));
 	Image imagedamaged3 = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\damagedSpaceship3.png"));
@@ -61,9 +60,7 @@ public class SpaceShip {
 	}**/
 	
 	public void move(Direction d, int delta, int intervall)
-	{
-		double pixelPerIntervall = this.movement * (intervall / 1000.0);
-		
+	{	
 		if(isDead == false)
 		{
 			switch(d)
