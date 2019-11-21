@@ -30,6 +30,10 @@ public class SpaceShip {
 	int counter = 0;
 	boolean fastShoot = false;
 	
+	final URL sound29 = getClass().getResource("\\sound\\PewSound.mp3");
+	Media sound = new Media(sound29.toString());
+	final MediaPlayer mediaPlayer = new MediaPlayer(sound);
+	
 	public SpaceShip(int x, int y) {
 		this.x = x;
 		this.y = y;
@@ -109,10 +113,9 @@ public class SpaceShip {
 		
 		Rocket r = new Rocket(this.x+125, this.y+55, -5);
 		
-		final URL sound29 = getClass().getResource("\\sound\\PewSound.mp3");
-		Media sound = new Media(sound29.toString());
-		final MediaPlayer mediaPlayer = new MediaPlayer(sound);
+		mediaPlayer.stop();
 		mediaPlayer.play();
+		
 		
 		return r;
 	}

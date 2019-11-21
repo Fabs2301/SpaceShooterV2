@@ -4,7 +4,6 @@ Author: Fabian Gruber and Marcel Winkler @ HTL Leoben
 TODO:
 * Hitboxen anpassen
 * Codecleanup
-* Temporäre Powerups
 * Boostbar
 * Spaceship animations
 * Show fps
@@ -12,17 +11,13 @@ TODO:
 
 DONE:
 * Smooth Movement /FPS lock	
-* Rising Difficulty /
+* Rising Difficulty
 * Fullscreen Mode
+* Temporäre Powerups
 
 IN PROGRESS:
-* Powerups
-* Health Pack
-* Shield
 * Boost
 * Double Rocket
-* Shoot Speed
-* Point Pack
 * All Screen Cleanup
 
 Maybe:
