@@ -181,8 +181,12 @@ public class SpaceShip {
 	        {
 	            return false;
 	        }
-        }
-		return true;
+        } else if(currentTime - cooldown >= 50) 
+        {
+            cooldown = currentTime;
+            return true;
+       }
+		return false;
     }
 
 	public int getMaxHealth() {

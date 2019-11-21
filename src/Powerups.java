@@ -30,11 +30,11 @@ public class Powerups {
 	 */
 	
 	public boolean spawnPowerup() {
-		this.randomSpawnNumber = rnd.nextInt(10);
+		this.randomSpawnNumber = rnd.nextInt(1000);
 		//System.out.println(randomSpawnNumber);
 		//System.out.println("test");
 		
-		if(randomSpawnNumber == 5) 
+		if(randomSpawnNumber == 500) 
 		{
 		// Randomly spawns a powerup.
 			poweruptype = rnd.nextInt(4);
