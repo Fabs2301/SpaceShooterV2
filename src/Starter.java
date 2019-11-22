@@ -174,12 +174,17 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(right)
 				{
-					s.move(Direction.right, movement, SPRITE_MOVE_INTERVALL);
+					if(s.getX()<1770)
+					{
+						s.move(Direction.right, movement, SPRITE_MOVE_INTERVALL);
+					}
 				}
 				if(left)
 				{
-					s.move(Direction.left, movement, SPRITE_MOVE_INTERVALL);
-					
+					if(s.getX()>0)
+					{
+						s.move(Direction.left, movement, SPRITE_MOVE_INTERVALL);
+					}
 				}
 				if(up)
 				{
@@ -188,7 +193,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(down)
 				{
-					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
+					if(s.getY()>heigth -160) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
 						
 				}if(space) {
 					if(s.canFire() == true) {

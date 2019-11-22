@@ -139,7 +139,7 @@ public class SpaceShip {
 				damageCount++;
 			}
 
-			System.out.println("AUUUUUUUUUTSCH!");
+			System.out.println("Fuck that hurts!");
 		}
 		if(shieldhealth == 0) {
 		shieldActivated = false;
