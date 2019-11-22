@@ -141,7 +141,7 @@ public class SpaceShip {
 
 			System.out.println("F*** that hurts!");
 		}
-		if(shieldhealth == 0) {
+		if(shieldhealth == 0 && shieldActivated == true) {
 		shieldActivated = false;
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 		}else {
