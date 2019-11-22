@@ -226,7 +226,7 @@ public class SpaceShip {
 	public void activateShield() {
 		this.shieldActivated = true;
 		image = shield;
-		shieldhealth = 4;
+		shieldhealth = 2;
 	}
 	
 }
