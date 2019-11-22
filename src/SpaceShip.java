@@ -95,7 +95,7 @@ public class SpaceShip {
 		if(fastShoot == true)
 		{
 			counter ++;
-			if(counter>300)
+			if(counter>200)
 			{
 				fastShoot = false;
 				counter = 0;
@@ -182,7 +182,7 @@ public class SpaceShip {
 	        {
 	            return false;
 	        }
-        } else if(currentTime - cooldown >= 100) 
+        } else if(currentTime - cooldown >= 150) 
         {
             cooldown = currentTime;
             return true;
