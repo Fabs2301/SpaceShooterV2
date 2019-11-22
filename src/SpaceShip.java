@@ -182,7 +182,7 @@ public class SpaceShip {
 	        {
 	            return false;
 	        }
-        } else if(currentTime - cooldown >= 50) 
+        } else if(currentTime - cooldown >= 100) 
         {
             cooldown = currentTime;
             return true;
