@@ -817,5 +817,4 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			}
 		}
 	}
-
 }
