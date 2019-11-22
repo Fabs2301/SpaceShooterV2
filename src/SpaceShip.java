@@ -168,6 +168,7 @@ public class SpaceShip {
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 	}
 	
+	
 	public boolean canFire()
     {
         long currentTime = System.currentTimeMillis();
