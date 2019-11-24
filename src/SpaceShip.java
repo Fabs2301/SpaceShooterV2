@@ -95,7 +95,7 @@ public class SpaceShip {
 		if(fastShoot == true)
 		{
 			counter ++;
-			if(counter>300)
+			if(counter>200)
 			{
 				fastShoot = false;
 				counter = 0;
@@ -139,9 +139,9 @@ public class SpaceShip {
 				damageCount++;
 			}
 
-			System.out.println("AUUUUUUUUUTSCH!");
+			System.out.println("F*** that hurts!");
 		}
-		if(shieldhealth == 0) {
+		if(shieldhealth == 0 && shieldActivated == true) {
 		shieldActivated = false;
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 		}else {
@@ -168,6 +168,7 @@ public class SpaceShip {
 		image = new Image(Starter.class.getClassLoader().getResourceAsStream("\\image\\spaceship.png"));
 	}
 	
+	
 	public boolean canFire()
     {
         long currentTime = System.currentTimeMillis();
@@ -182,7 +183,7 @@ public class SpaceShip {
 	        {
 	            return false;
 	        }
-        } else if(currentTime - cooldown >= 50) 
+        } else if(currentTime - cooldown >= 150) 
         {
             cooldown = currentTime;
             return true;
@@ -226,7 +227,7 @@ public class SpaceShip {
 	public void activateShield() {
 		this.shieldActivated = true;
 		image = shield;
-		shieldhealth = 4;
+		shieldhealth = 2;
 	}
 	
 }
