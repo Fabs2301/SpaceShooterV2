@@ -2,23 +2,16 @@
 Author: Fabian Gruber and Marcel Winkler @ HTL Leoben
 
 TODO:
-* Hitboxen anpassen
-* Codecleanup
-* Boostbar
-* Spaceship animations
-* Show fps
-* Setting Difficulty
+## This Project has been finished!
 
 DONE:
 * Smooth Movement /FPS lock	
 * Rising Difficulty
 * Fullscreen Mode
 * Temporäre Powerups
+* Hitboxen anpassen
 
 IN PROGRESS:
-* Boost
-* Double Rocket
-* All Screen Cleanup
 
 Maybe:
 * Multiplayer
@@ -28,3 +21,8 @@ Maybe:
 * Powerups
 * Homing Missle
 * Laser
+* Codecleanup
+* Boostbar
+* Spaceship animations
+* Show fps
+* Setting Difficulty
