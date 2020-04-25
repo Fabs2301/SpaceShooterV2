@@ -56,12 +56,15 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 	long survivalTime = 0;
 	boolean powerupMoved = false;
 	
+	
+	
 	final URL sound27 = getClass().getResource("\\sound\\explosion.wav");
 	Media sound6 = new Media(sound27.toString());
 	final MediaPlayer mediaPlayerExplosion = new MediaPlayer(sound6);
 	
 
 	public static void main (String args[]) {
+		System.setProperty("prism.allowhidpi", "false");
 		Application.launch();
 	}
 	
@@ -174,17 +177,12 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(right)
 				{
-					if(s.getX()<1770)
-					{
-						s.move(Direction.right, movement, SPRITE_MOVE_INTERVALL);
-					}
+					s.move(Direction.right, movement, SPRITE_MOVE_INTERVALL);
 				}
 				if(left)
 				{
-					if(s.getX()>0)
-					{
-						s.move(Direction.left, movement, SPRITE_MOVE_INTERVALL);
-					}
+					s.move(Direction.left, movement, SPRITE_MOVE_INTERVALL);
+					
 				}
 				if(up)
 				{
@@ -193,7 +191,7 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 				}
 				if(down)
 				{
-					if(s.getY()>heigth -160) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
+					if(s.getY()>heigth -180) {}else {s.move(Direction.down, movement, SPRITE_MOVE_INTERVALL);}
 						
 				}if(space) {
 					if(s.canFire() == true) {
@@ -819,8 +817,9 @@ public class Starter extends Application implements EventHandler<KeyEvent> {
 			if (setScene == 2) {
 				/**setScene = 6;
 				moveText = 50;**/
+				
+				
 			}
 		}
 	}
-
 }
