@@ -2,27 +2,22 @@
 
 
 TODO:
-* Hitboxen anpassen
-* Codecleanup
-* Boostbar
-* Spaceship animations
-* Show fps
-* Setting Difficulty
+## This Project has been finished!
 
 DONE:
 * Smooth Movement /FPS lock	
 * Rising Difficulty
 * Fullscreen Mode
-<<<<<<< HEAD
+* Temporäre Powerups
+* Hitboxen anpassen
 
 
 IN PROGRESS:
+
 *Project is finished
 =======
 * Temporäre Powerups
 
-
->>>>>>> branch 'master' of https://github.com/Fabs2301/SpaceShooterV2
 
 Maybe:
 * Multiplayer
@@ -35,3 +30,10 @@ Maybe:
 * Boost
 * Double Rocket
 * All Screen Cleanup
+=======
+* Codecleanup
+* Boostbar
+* Spaceship animations
+* Show fps
+* Setting Difficulty
+
